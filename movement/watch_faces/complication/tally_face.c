@@ -27,6 +27,9 @@
 #include "tally_face.h"
 #include "watch.h"
 
+#define TALLY_FACE_MAX 9999
+#define TALLY_FACE_MIN -99
+
 static const int16_t _tally_default[] = {0, 40, 20};
 static const uint8_t _tally_default_size = sizeof(_tally_default) / sizeof(int16_t);
 
@@ -53,19 +56,19 @@ bool tally_face_loop(movement_event_t event, movement_settings_t *settings, void
     
     switch (event.event_type) {
         case EVENT_ALARM_BUTTON_UP:
-            // increment tally index
-            state->tally_idx++;
-            if (state->tally_idx > 9999) { //0-9,999
-                //reset tally index and play a reset tune
-                state->tally_idx = _tally_default[state->tally_default_idx];
-                if (!state->soundOff) watch_buzzer_play_note(BUZZER_NOTE_G6, 30);
-                if (!state->soundOff) watch_buzzer_play_note(BUZZER_NOTE_REST, 30);
+            // decrement tally index
+            if (state->tally_idx <= TALLY_FACE_MIN){
+                if (!state->soundOff) watch_buzzer_play_note(BUZZER_NOTE_C5SHARP_D5FLAT, 30);
             }
-            print_tally(state);
-            if (!state->soundOff) watch_buzzer_play_note(BUZZER_NOTE_E6, 30);
+            else{
+                state->tally_idx = state->tally_idx - (watch_get_pin_level(BTN_LIGHT) ? 10 : 1);
+                if (state->tally_idx < TALLY_FACE_MIN) state->tally_idx = TALLY_FACE_MIN;
+                print_tally(state);
+                if (!state->soundOff) watch_buzzer_play_note(BUZZER_NOTE_C6SHARP_D6FLAT, 30);
+            }
             break;
         case EVENT_ALARM_LONG_PRESS:
-            if (state->tally_idx == _tally_default[state->tally_default_idx]){  // Able to turn off sound if we hold this button when it's at zero.
+            if (state->tally_idx == _tally_default[state->tally_default_idx]){  // Able to turn off sound if we hold this button when it's at the default value.
                 state->soundOff = !state->soundOff;
                 if (!state->soundOff) watch_buzzer_play_note(BUZZER_NOTE_E6, 30);
                 print_tally(state);
@@ -80,11 +83,14 @@ bool tally_face_loop(movement_event_t event, movement_settings_t *settings, void
             }
             break;
         case EVENT_LIGHT_BUTTON_UP:
-            // decrement tally index
-            if (state->tally_idx > -99){
-                state->tally_idx--;
+            // increment tally index
+            if (state->tally_idx >= TALLY_FACE_MAX){
+                if (!state->soundOff) watch_buzzer_play_note(BUZZER_NOTE_E7, 30);
+            }
+            else{
+                state->tally_idx++;
                 print_tally(state);
-                if (!state->soundOff) watch_buzzer_play_note(BUZZER_NOTE_C6SHARP_D6FLAT, 30);
+                if (!state->soundOff) watch_buzzer_play_note(BUZZER_NOTE_E6, 30);
             }
             break;
         case EVENT_LIGHT_BUTTON_DOWN:

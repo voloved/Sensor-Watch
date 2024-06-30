@@ -110,6 +110,8 @@ void probability_face_setup(movement_settings_t *settings, uint8_t watch_face_in
     if (*context_ptr == NULL) {
         *context_ptr = malloc(sizeof(probability_state_t));
         memset(*context_ptr, 0, sizeof(probability_state_t));
+        probability_state_t *state = (probability_state_t *)*context_ptr;
+        state->dice_sides = DEFAULT_DICE_SIDES;
     }
     // Emulator only: Seed random number generator
     #if __EMSCRIPTEN__
@@ -121,7 +123,6 @@ void probability_face_activate(movement_settings_t *settings, void *context) {
     (void) settings;
     probability_state_t *state = (probability_state_t *)context;
 
-    state->dice_sides = DEFAULT_DICE_SIDES;
     state->rolled_value = 0;
     watch_display_string("PR", 0);
 }
