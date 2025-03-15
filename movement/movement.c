@@ -616,9 +616,13 @@ bool movement_update_dst_offset_cache(void) {
 }
 
 static bool dst_cache_may_be_stale(watch_date_time utc_now) {
-    // Checks if the yr, mo, day, and hr are all the same
+    // If _dst_last_cache was never set, default to recalculating
+    if (_dst_last_cache.reg == 0) return true;
+    // If we time-travelled, assume it's stale
+    if(_dst_last_cache.reg > utc_now.reg) return true;
+    // Checks if the yr, mo, day, and hr are all the same and says the data may be stale if not.
     if(((utc_now.reg ^ _dst_last_cache.reg) >> 12) != 0) return true;
-    const uint8_t min_to_trigger = 30;  // We want to check every half-hour, but no need to cache more than once in a hour-hour.
+    const uint8_t min_to_trigger = 30;  // We want to check every half-hour, but no need to cache more than once in a half-hour.
     int8_t delta_actual = utc_now.unit.minute - _dst_last_cache.unit.minute;
     if (delta_actual == 0) return false;
     int8_t delta_min = min_to_trigger - (_dst_last_cache.unit.minute % min_to_trigger);
@@ -749,7 +753,8 @@ void app_setup(void) {
         alarm_time.unit.second = 59; // after a match, the alarm fires at the next rising edge of CLK_RTC_CNT, so 59 seconds lets us update at :00
         watch_rtc_register_alarm_callback(cb_alarm_fired, alarm_time, ALARM_MATCH_SS);
     }
-    if (movement_state.le_mode_ticks != -1) {
+    if (movement_state.le_mode_ticks != -1 && movement_state.le_deep_sleeping_ticks != -1) {
+        movement_update_dst_offset_cache_if_needed(movement_get_utc_date_time());  
         watch_disable_extwake_interrupt(BTN_ALARM);
 
         watch_enable_external_interrupts();

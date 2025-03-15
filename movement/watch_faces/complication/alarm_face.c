@@ -453,6 +453,8 @@ bool alarm_face_loop(movement_event_t event, movement_settings_t *settings, void
             state->alarm[state->alarm_playing_idx].enabled = false;
             _alarm_update_alarm_enabled(settings, state);
         }
+        // Update the alarm indicator
+        _alarm_update_alarm_enabled(settings, state);
         break;
     case EVENT_TIMEOUT:
         movement_move_to_face(0);

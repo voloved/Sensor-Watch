@@ -29,3 +29,5 @@ utils/SpotifyActPopularitySorting/creds.json
 utils/SpotifyActPopularitySorting/*festival_schedule_arr.txt
 utils/SpotifyActPopularitySorting/.cache
 utils/SpotifyActPopularitySorting/venv
+*.gbr
+*.gbrjob
