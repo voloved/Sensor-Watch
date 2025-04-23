@@ -37,10 +37,23 @@
 #include "movement.h"
 
 typedef struct {
+    int16_t longitude_centi;
+    int16_t latitude_centi;
+    uint16_t day : 5;       // 1-31
+    uint16_t month : 4;     // 1-12
+    uint16_t year : 6;      // 0-63 (representing 2020-2083)
+    uint16_t foundTime :1;
+    uint8_t chime_start;
+    uint8_t chime_end;
+    uint8_t tz_idx; // Likely not needed to check, but just in case.
+} chime_time_t;  // Used for caching the sunrise sunset info
+
+typedef struct {
     watch_date_time previous_date_time;
     uint8_t last_battery_check;
     uint8_t watch_face_index;
     movement_birthdate_t birth_date;
+    chime_time_t last_sun_chime_info;
     bool signal_enabled;
     bool battery_low;
     bool alarm_enabled;
@@ -53,6 +66,7 @@ bool simple_clock_face_loop(movement_event_t event, movement_settings_t *setting
 void simple_clock_face_resign(movement_settings_t *settings, void *context);
 bool simple_clock_face_wants_background_task(movement_settings_t *settings, void *context);
 
+#define INIT_CHIME_VAL    0xFF
 #define simple_clock_face ((const watch_face_t){ \
     simple_clock_face_setup, \
     simple_clock_face_activate, \
