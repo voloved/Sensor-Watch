@@ -162,7 +162,7 @@ movement_state_t movement_state;
 void * watch_face_contexts[MOVEMENT_NUM_FACES];
 watch_date_time scheduled_tasks[MOVEMENT_NUM_FACES];
 const int32_t movement_le_inactivity_deadlines[8] = {INT_MAX, 600, 3600, 7200, 21600, 43200, 86400, 604800};
-const int32_t movement_le_deep_sleep_deadline = 60; // In minutes (will trigger at the top of the minute, rounded up from the LE timeout tick)
+const int32_t movement_le_deep_sleep_deadline = 4 * 60; // In minutes (will trigger at the top of the minute, rounded up from the LE timeout tick)
 const int16_t movement_timeout_inactivity_deadlines[4] = {60, 120, 300, 1800};
 int8_t g_temperature_c = -128;
 uint8_t g_force_sleep; // 0 = no sleep forced; 1 = normal sleep; 2 = deep sleep
@@ -318,20 +318,19 @@ static inline void _movement_disable_fast_tick_if_possible(void) {
 static void _decrement_deep_sleep_counter(void){
     if(!movement_state.settings.bit.screen_off_after_le) return;
     if(movement_state.le_mode_ticks != -1 || movement_state.le_deep_sleeping_ticks == -1) return;
-    if (movement_state.le_deep_sleeping_ticks > 0) movement_state.le_deep_sleeping_ticks--;
+    // Reset whenever the temperature is high enough, so that way, we need multiple hours in a row before going into deep sleep.
+    if (g_temperature_c >= TEMPERATURE_ASSUME_WEARING) movement_state.le_deep_sleeping_ticks = movement_le_deep_sleep_deadline;
+    else if (movement_state.le_deep_sleeping_ticks > 0) movement_state.le_deep_sleeping_ticks--;
     else{
         if (g_temperature_c == -128) return; // Ignore when the temp is not first read without affecting the timer.
-        else if (g_temperature_c < TEMPERATURE_ASSUME_WEARING){
-            // Do one more check of the temperature before turning off in case a use placed
-            // the watch on their wrist in between the last thermistor log and now
-            thermistor_driver_enable();
-            g_temperature_c = thermistor_driver_get_temperature();
-            thermistor_driver_disable();
-            if (g_temperature_c < TEMPERATURE_ASSUME_WEARING){
-                movement_state.le_deep_sleeping_ticks = -1;
-                return;
-            } 
-        }
+        // Re-check temperature in case the user wore the watch after the last reading.
+        thermistor_driver_enable();
+        g_temperature_c = thermistor_driver_get_temperature();
+        thermistor_driver_disable();
+        if (g_temperature_c < TEMPERATURE_ASSUME_WEARING){
+            movement_state.le_deep_sleeping_ticks = -1;
+            return;
+        } 
         movement_state.le_deep_sleeping_ticks = movement_le_deep_sleep_deadline;
     }
 }
