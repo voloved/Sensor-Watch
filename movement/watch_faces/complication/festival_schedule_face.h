@@ -31,11 +31,11 @@
 typedef enum FestivalStage {
     NO_STAGE = 0,
     T_MOBILE,
-    COINBASE,
+    LAKESHORE,
     BUD_LIGHT,
     TITOS,
     PERRYS,
-    BACARDI,
+    THE_GROVE,
     BMI,
     STAGE_COUNT
 } FestivalStage;
@@ -84,7 +84,7 @@ typedef enum FestivalTickReason {
 } FestivalTickReason;
 
 typedef struct {
-    char artist[6];
+    char artist[25];
     FestivalStage stage;
     watch_date_time start_time;
     watch_date_time end_time;
