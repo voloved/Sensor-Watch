@@ -31,63 +31,6 @@
 
 static watch_date_time date_time;
 
-static uint8_t _time_to_chime_hour(double time, double hours_from_utc, bool use_end_of_hour) {
-    time += hours_from_utc;
-    uint8_t hour_to_start = (uint8_t)time;
-    double minutes = (time - hour_to_start) * 60;
-    if (use_end_of_hour && minutes >= 0.5)
-        hour_to_start = (hour_to_start + 1) % 24;
-    if (hour_to_start == 0) hour_to_start = 24;
-    return hour_to_start;
-}
-
-static bool _compare_chime_dates(chime_time_t curr, chime_time_t prev) {
-    if (!prev.foundTime) return false;
-    if (curr.year != prev.year) return false;
-    if (curr.month != prev.month) return false;
-    if (curr.day != prev.day) return false;
-    if (curr.latitude_centi != prev.latitude_centi) return false;
-    if (curr.longitude_centi != prev.longitude_centi) return false;
-    if (curr.tz_idx != prev.tz_idx) return false;
-    return true;    
-}
-
-static void _get_chime_times(watch_date_time date_time, movement_settings_t *settings, chime_time_t *last_chime_info) {
-    uint8_t hourly_chime_start = settings->bit.hourly_chime_start;
-    uint8_t hourly_chime_end = settings->bit.hourly_chime_end;
-    if (hourly_chime_start != 3) last_chime_info->chime_start = Hourly_Chime_Start[hourly_chime_start];
-    if (hourly_chime_end != 3) last_chime_info->chime_end = Hourly_Chime_Start[hourly_chime_end];
-    if (hourly_chime_start != 3 && hourly_chime_end != 3) return;
-    chime_time_t curr_chime_info = {0};
-    curr_chime_info.tz_idx = movement_get_timezone_index();
-    int32_t tz = movement_get_current_timezone_offset_for_zone(curr_chime_info.tz_idx);
-    watch_date_time utc_now = watch_utility_date_time_convert_zone(date_time, tz, 0); // the current date / time in UTC
-    movement_location_t movement_location = (movement_location_t) watch_get_backup_data(1);
-    if (movement_location.reg == 0) {
-        last_chime_info->foundTime = false;
-        return;
-    }
-    double rise, set;
-    curr_chime_info.year = date_time.unit.year;
-    curr_chime_info.month = date_time.unit.month;
-    curr_chime_info.day = date_time.unit.day;
-    curr_chime_info.latitude_centi = (int16_t)movement_location.bit.latitude;
-    curr_chime_info.longitude_centi = (int16_t)movement_location.bit.longitude;
-    if (_compare_chime_dates(curr_chime_info, *last_chime_info)) return;
-    *last_chime_info = curr_chime_info;
-    double lat = (double)curr_chime_info.latitude_centi / 100.0;
-    double lon = (double)curr_chime_info.longitude_centi / 100.0;
-    double hours_from_utc = ((double)tz) / 3600.0;
-    uint8_t result = sun_rise_set(utc_now.unit.year + WATCH_RTC_REFERENCE_YEAR, utc_now.unit.month, utc_now.unit.day, lon, lat, &rise, &set);
-    if (result != 0) {
-        last_chime_info->foundTime = false;
-        return;
-    }
-    last_chime_info->chime_start  = _time_to_chime_hour(rise, hours_from_utc, true);
-    last_chime_info->chime_end = _time_to_chime_hour(set, hours_from_utc, false);
-    last_chime_info->foundTime = true;
-}
-
 static void _update_alarm_indicator(bool settings_alarm_enabled, simple_clock_state_t *state) {
     state->alarm_enabled = settings_alarm_enabled;
     if (state->alarm_enabled) watch_set_indicator(WATCH_INDICATOR_SIGNAL);
@@ -289,10 +232,13 @@ bool simple_clock_face_wants_background_task(movement_settings_t *settings, void
     date_time = movement_get_local_date_time();
     if (date_time.unit.minute != 0) return false;
     if (settings->bit.hourly_chime_always) return true;
-    _get_chime_times(date_time, settings, &state->last_sun_chime_info);
-    uint8_t chime_start = state->last_sun_chime_info.chime_start;
-    uint8_t chime_end = state->last_sun_chime_info.chime_end;
-    if ((24 >= chime_start && date_time.unit.hour < chime_start) || (24 >= chime_end && date_time.unit.hour >= chime_end)) return false;
+
+    bool use_chime_start_time = date_time.unit.hour < 16;  // Just needs to be number between the highest Hourly_Chime_Start and lowest Hourly_Chime_End
+    if (settings->bit.hourly_chime_start == 3 && use_chime_start_time && settings->bit.is_daytime) return true;
+    if (settings->bit.hourly_chime_end == 3 && !use_chime_start_time && settings->bit.is_daytime) return true;
+    uint8_t chime_start = Hourly_Chime_Start[settings->bit.hourly_chime_start];
+    uint8_t chime_end = Hourly_Chime_End[settings->bit.hourly_chime_end];
+    if (date_time.unit.hour < chime_start || date_time.unit.hour >= chime_end) return false;
 
     return true;
 }

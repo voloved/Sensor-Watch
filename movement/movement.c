@@ -274,6 +274,62 @@ static bool _movement_check_dst_changeover_occurring_now(watch_date_time date_ti
     return false;
 }
 
+static uint8_t _movement_get_rise_set_hour(double time, double hours_from_utc, bool use_end_of_hour) {
+    time += hours_from_utc;
+    uint8_t hour_to_start = (uint8_t)time;
+    double minutes = (time - hour_to_start) * 60;
+    if (use_end_of_hour && minutes >= 0.5)
+        hour_to_start = (hour_to_start + 1) % 24;
+    if (hour_to_start == 0) hour_to_start = 24;
+    return hour_to_start;
+}
+
+static bool _movement_compare_rise_set_dates(rise_set_check_t curr, rise_set_check_t prev) {
+    if (!prev.foundTime) return false;
+    if (curr.year != prev.year) return false;
+    if (curr.month != prev.month) return false;
+    if (curr.day != prev.day) return false;
+    if (curr.latitude_centi != prev.latitude_centi) return false;
+    if (curr.longitude_centi != prev.longitude_centi) return false;
+    if (curr.tz_idx != prev.tz_idx) return false;
+    return true;    
+}
+
+static bool _movement_get_if_daytime(watch_date_time date_time, watch_date_time utc_now, rise_set_check_t *prev_rise_set_info) {
+    const uint8_t rise_fallback =  5; // If time's not found, use this hour for the end of sunrise
+    const uint8_t fall_fallback = 22; // If time's not found, use this hour for the end of sunset
+    rise_set_check_t rise_set_info = {0};
+    rise_set_info.tz_idx = movement_get_timezone_index();
+
+    if (movement_state.location.reg == 0) {
+        prev_rise_set_info->foundTime = false;
+        return ((date_time.unit.hour < rise_fallback) || (date_time.unit.hour >= fall_fallback));
+    }
+    double rise, set;
+    rise_set_info.year = date_time.unit.year;
+    rise_set_info.month = date_time.unit.month;
+    rise_set_info.day = date_time.unit.day;
+    rise_set_info.latitude_centi = (int16_t)movement_state.location.bit.latitude;
+    rise_set_info.longitude_centi = (int16_t)movement_state.location.bit.longitude;
+    if (_movement_compare_rise_set_dates(rise_set_info, *prev_rise_set_info)) {
+        return ((date_time.unit.hour <= rise_fallback) || (date_time.unit.hour >= fall_fallback));
+    }
+    *prev_rise_set_info = rise_set_info;
+    double lat = (double)rise_set_info.latitude_centi / 100.0;
+    double lon = (double)rise_set_info.longitude_centi / 100.0;
+    int32_t tz = movement_get_current_timezone_offset_for_zone(rise_set_info.tz_idx);
+    double hours_from_utc = ((double)tz) / 3600.0;
+    uint8_t result = sun_rise_set(utc_now.unit.year + WATCH_RTC_REFERENCE_YEAR, utc_now.unit.month, utc_now.unit.day, lon, lat, &rise, &set);
+    if (result != 0) {
+        prev_rise_set_info->foundTime = false;
+        return ((date_time.unit.hour <= rise_fallback) || (date_time.unit.hour >= fall_fallback));
+    }
+    uint8_t rise_hr = _movement_get_rise_set_hour(rise, hours_from_utc, true);
+    uint8_t fall_hr =  _movement_get_rise_set_hour(set, hours_from_utc, false);
+    prev_rise_set_info->foundTime = true;
+    return ((date_time.unit.hour < rise_hr) || (date_time.unit.hour >= fall_hr));
+}
+
 static inline void _movement_reset_inactivity_countdown(void) {
     movement_state.le_mode_ticks = movement_le_inactivity_deadlines[movement_state.settings.bit.le_interval];
     movement_state.timeout_ticks = movement_timeout_inactivity_deadlines[movement_state.settings.bit.to_interval];
@@ -343,6 +399,8 @@ static void _movement_handle_background_tasks(void) {
     if (_movement_check_dst_changeover_occurring_now(date_time)) {
         _movement_update_dst_offset_cache(utc_now);
     }
+    
+    movement_state.settings.bit.is_daytime = _movement_get_if_daytime(date_time, utc_now, &movement_state.prev_sun_info);
 
     for(uint8_t i = 0; i < MOVEMENT_NUM_FACES; i++) {
         // For each face, if the watch face wants a background task...

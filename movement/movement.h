@@ -28,6 +28,7 @@
 #include <stdbool.h>
 #include "watch.h"
 #include "utz.h"
+#include "sunriset.h"
 
 // Movement Preferences
 // These four 32-bit structs store information about the wearer and their preferences. Tentatively, the plan is
@@ -68,7 +69,8 @@ typedef union {
         uint8_t hourly_chime_start : 2;     // 0: 6am; 1: 7am; 2: 10am; 3: 12pm; 
         uint8_t hourly_chime_end : 2;       // 0: 8pm; 1: 9pm; 2: 10pm; 3: 12am;
         bool screen_off_after_le : 1;       // If true and we're in LE mode and it's the top of the hour and the temp is below #DEFAULT_TEMP_ASSUME_WEARING but not zero, then turn off the screen and other tasks.
-        uint8_t unused : 2;
+        bool is_daytime : 1;                // If true, we know it's daytime
+        uint8_t unused : 1;
     } bit;
     uint32_t reg;
 } movement_settings_t;
@@ -247,6 +249,18 @@ typedef struct {
 } watch_face_t;
 
 typedef struct {
+    int16_t longitude_centi;
+    int16_t latitude_centi;
+    uint16_t day : 5;       // 1-31
+    uint16_t month : 4;     // 1-12
+    uint16_t year : 6;      // 0-63 (representing 2020-2083)
+    uint16_t foundTime :1;
+    uint8_t hr_rise; // The first hour after the sunrise
+    uint8_t hr_set; // The last hour before a sunset
+    uint8_t tz_idx; // Likely not needed to check, but just in case.
+} rise_set_check_t;  // Used for caching the sunrise sunset info
+
+typedef struct {
     // properties stored in BACKUP register
     movement_settings_t settings;
     movement_location_t location;
@@ -295,6 +309,7 @@ typedef struct {
 
     // backup register stuff
     uint8_t next_available_backup_register;
+    rise_set_check_t prev_sun_info;
 } movement_state_t;
 
 void movement_move_to_face(uint8_t watch_face_index);
