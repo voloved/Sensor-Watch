@@ -56,7 +56,7 @@ static const uint8_t Character_Set[] =
     0b01111111, // 8
     0b01101111, // 9
     0b01011101, // ö (: is unused, so this is taking over)
-    0b00000000, // ; (unused)
+    0b00011101, // ü (; is unused, so this is taking over)
     0b01011000, // <
     0b01001000, // =
     0b01001100, // >
