@@ -29,50 +29,6 @@
 #include "watch_private_display.h"
 #include "sunriset.h"
 
-static uint8_t _time_to_chime_hour(double time, double hours_from_utc, bool use_end_of_hour) {
-    time += hours_from_utc;
-    uint8_t hour_to_start = (uint8_t)time;
-    double minutes = (time - hour_to_start) * 60;
-    if (!use_end_of_hour) return hour_to_start;
-    if (minutes >= 0.5)
-        hour_to_start = (hour_to_start + 1) % 24;
-    return hour_to_start;
-}
-
-static void _get_chime_times(watch_date_time date_time, movement_settings_t *settings, uint8_t *start_hour, uint8_t *end_hour) {
-    uint8_t init_val = 0xFF;
-    uint8_t hourly_chime_start = settings->bit.hourly_chime_start;
-    uint8_t hourly_chime_end = settings->bit.hourly_chime_end;
-    *start_hour = (hourly_chime_start == 3) ? init_val : Hourly_Chime_Start[hourly_chime_start];
-    *end_hour = (hourly_chime_end == 3) ? init_val : Hourly_Chime_End[hourly_chime_end];
-    if (hourly_chime_start != 3 && hourly_chime_end != 3) {
-        return;
-    }
-    int32_t tz = movement_get_current_timezone_offset();
-    watch_date_time utc_now = watch_utility_date_time_convert_zone(date_time, tz, 0); // the current date / time in UTC
-    movement_location_t movement_location = (movement_location_t) watch_get_backup_data(1);
-    if (movement_location.reg == 0) {
-        return;
-    }
-    double rise, set;
-    uint8_t rise_hour, set_hour;
-    int16_t lat_centi = (int16_t)movement_location.bit.latitude;
-    int16_t lon_centi = (int16_t)movement_location.bit.longitude;
-    double lat = (double)lat_centi / 100.0;
-    double lon = (double)lon_centi / 100.0;
-    double hours_from_utc = ((double)tz) / 3600.0;
-    uint8_t result = sun_rise_set(utc_now.unit.year + WATCH_RTC_REFERENCE_YEAR, utc_now.unit.month, utc_now.unit.day, lon, lat, &rise, &set);
-    if (result != 0) {
-        return;
-    }
-    rise_hour = _time_to_chime_hour(rise, hours_from_utc, true);
-    set_hour = _time_to_chime_hour(set, hours_from_utc, false);
-    if (*start_hour == init_val) *start_hour = rise_hour;
-    if (*end_hour == init_val) *end_hour = set_hour;
-    if (*start_hour == 0) *start_hour = 24;
-    if (*end_hour == 0) *end_hour = 24;
-}
-
 void play_hour_chime(void) {
         watch_buzzer_play_note(BUZZER_NOTE_C6, 75);
         watch_buzzer_play_note(BUZZER_NOTE_REST, 500);
@@ -255,16 +211,19 @@ void repetition_minute_face_resign(movement_settings_t *settings, void *context)
 }
 
 bool repetition_minute_face_wants_background_task(movement_settings_t *settings, void *context) {
-    (void) settings;
     repetition_minute_state_t *state = (repetition_minute_state_t *)context;
     if (!state->signal_enabled) return false;
 
     watch_date_time date_time = movement_get_local_date_time();
     if (date_time.unit.minute != 0) return false;
     if (settings->bit.hourly_chime_always) return true;
-    uint8_t chime_start, chime_end;
-    _get_chime_times(date_time, settings, &chime_start, &chime_end);
-    if ((24 >= chime_start && date_time.unit.hour < chime_start) || (24 >= chime_end && date_time.unit.hour >= chime_end)) return false;
+
+    bool use_chime_start_time = date_time.unit.hour < 16;
+    if (settings->bit.hourly_chime_start == 3 && use_chime_start_time && settings->bit.is_daytime) return true;
+    if (settings->bit.hourly_chime_end == 3 && !use_chime_start_time && settings->bit.is_daytime) return true;
+    uint8_t chime_start = Hourly_Chime_Start[settings->bit.hourly_chime_start];
+    uint8_t chime_end = Hourly_Chime_End[settings->bit.hourly_chime_end];
+    if (date_time.unit.hour < chime_start || date_time.unit.hour >= chime_end) return false;
 
     return true;
 }
