@@ -251,12 +251,7 @@ void alarm_face_setup(movement_settings_t *settings, uint8_t watch_face_index, v
         state->alarm[0].hour = 7;
         state->alarm[0].minute = 45;
         state->alarm[0].day = ALARM_DAY_WORKDAY_NO_HOLIDAYS;
-        state->alarm[0].enabled = true;
-
-        state->alarm[1].hour = 6;
-        state->alarm[1].minute = 20;
-        state->alarm[1].day = 2; // Wed
-        state->alarm[1].enabled = true;
+        state->alarm[0].enabled = false;
 
         state->alarm_handled_minute = -1;
         _wait_ticks = -1;
