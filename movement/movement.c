@@ -303,7 +303,7 @@ static bool _movement_get_if_daytime(watch_date_time date_time, watch_date_time 
 
     if (movement_state.location.reg == 0) {
         prev_rise_set_info->foundTime = false;
-        return ((date_time.unit.hour < rise_fallback) || (date_time.unit.hour >= fall_fallback));
+        return ((date_time.unit.hour >= rise_fallback) && (date_time.unit.hour < fall_fallback));
     }
     double rise, set;
     rise_set_info.year = date_time.unit.year;
@@ -312,7 +312,7 @@ static bool _movement_get_if_daytime(watch_date_time date_time, watch_date_time 
     rise_set_info.latitude_centi = (int16_t)movement_state.location.bit.latitude;
     rise_set_info.longitude_centi = (int16_t)movement_state.location.bit.longitude;
     if (_movement_compare_rise_set_dates(rise_set_info, *prev_rise_set_info)) {
-        return ((date_time.unit.hour <= rise_fallback) || (date_time.unit.hour >= fall_fallback));
+        return ((date_time.unit.hour >= rise_fallback) && (date_time.unit.hour < fall_fallback));
     }
     *prev_rise_set_info = rise_set_info;
     double lat = (double)rise_set_info.latitude_centi / 100.0;
@@ -322,12 +322,12 @@ static bool _movement_get_if_daytime(watch_date_time date_time, watch_date_time 
     uint8_t result = sun_rise_set(utc_now.unit.year + WATCH_RTC_REFERENCE_YEAR, utc_now.unit.month, utc_now.unit.day, lon, lat, &rise, &set);
     if (result != 0) {
         prev_rise_set_info->foundTime = false;
-        return ((date_time.unit.hour <= rise_fallback) || (date_time.unit.hour >= fall_fallback));
+        return ((date_time.unit.hour >= rise_fallback) && (date_time.unit.hour < fall_fallback));
     }
     uint8_t rise_hr = _movement_get_rise_set_hour(rise, hours_from_utc, true);
     uint8_t fall_hr =  _movement_get_rise_set_hour(set, hours_from_utc, false);
     prev_rise_set_info->foundTime = true;
-    return ((date_time.unit.hour < rise_hr) || (date_time.unit.hour >= fall_hr));
+    return ((date_time.unit.hour >= rise_hr) && (date_time.unit.hour < fall_hr));
 }
 
 static inline void _movement_reset_inactivity_countdown(void) {
