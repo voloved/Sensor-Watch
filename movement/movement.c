@@ -371,10 +371,11 @@ static inline void _movement_disable_fast_tick_if_possible(void) {
     }
 }
 
-static void _decrement_deep_sleep_counter(void){
+static void _decrement_deep_sleep_counter(watch_date_time date_time){
     if(!movement_state.settings.bit.screen_off_after_le) return;
     if(movement_state.le_mode_ticks != -1 || movement_state.le_deep_sleeping_ticks == -1) return;
-    // Reset whenever the temperature is high enough, so that way, we need multiple hours in a row before going into deep sleep.
+    if(date_time.unit.hour >= 22 || date_time.unit.hour < 6) return; // Don't turn off the display during hour where people are unlikely to wear it
+    // Reset whenever the temperature is high enough, so that way, we need multiple hours in a row before going into deep sleep.    
     if (g_temperature_c >= TEMPERATURE_ASSUME_WEARING) movement_state.le_deep_sleeping_ticks = movement_le_deep_sleep_deadline;
     else if (movement_state.le_deep_sleeping_ticks > 0) movement_state.le_deep_sleeping_ticks--;
     else{
@@ -400,7 +401,9 @@ static void _movement_handle_background_tasks(void) {
         _movement_update_dst_offset_cache(utc_now);
     }
     
-    movement_state.settings.bit.is_daytime = _movement_get_if_daytime(date_time, utc_now, &movement_state.prev_sun_info);
+    if (date_time.unit.minute != 0) {
+        movement_state.settings.bit.is_daytime = _movement_get_if_daytime(date_time, utc_now, &movement_state.prev_sun_info);
+    }
 
     for(uint8_t i = 0; i < MOVEMENT_NUM_FACES; i++) {
         // For each face, if the watch face wants a background task...
@@ -410,7 +413,7 @@ static void _movement_handle_background_tasks(void) {
             watch_faces[i].loop(background_event, &movement_state.settings, watch_face_contexts[i]);
         }
     }
-    _decrement_deep_sleep_counter();
+    _decrement_deep_sleep_counter(date_time);
     movement_state.needs_background_tasks_handled = false;
 }
 
@@ -780,8 +783,9 @@ void app_setup(void) {
             is_first_launch = false;
         }
 
+        watch_date_time utc_now = movement_get_utc_date_time();
         // populate the DST offset cache
-        _movement_update_dst_offset_cache(movement_get_utc_date_time());
+        _movement_update_dst_offset_cache(utc_now);
 
 #if __EMSCRIPTEN__
         int32_t time_zone_offset = EM_ASM_INT({
@@ -804,6 +808,8 @@ void app_setup(void) {
         movement_state.settings.bit.time_zone = UTZ_NEW_YORK;  // Atlantic Time as default
 #endif
 
+        watch_date_time date_time = watch_utility_date_time_convert_zone(utc_now, 0, movement_get_current_timezone_offset());
+        movement_state.settings.bit.is_daytime = _movement_get_if_daytime(date_time, utc_now, &movement_state.prev_sun_info);
         // set up the 1 minute alarm (for background tasks and low power updates)
         watch_date_time alarm_time;
         alarm_time.reg = 0;
