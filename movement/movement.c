@@ -373,8 +373,13 @@ static inline void _movement_disable_fast_tick_if_possible(void) {
 
 static void _decrement_deep_sleep_counter(watch_date_time date_time){
     if(!movement_state.settings.bit.screen_off_after_le) return;
-    if(movement_state.le_mode_ticks != -1 || movement_state.le_deep_sleeping_ticks == -1) return;
-    if(date_time.unit.hour >= 22 || date_time.unit.hour < 6) return; // Don't turn off the display during hour where people are unlikely to wear it
+    if (movement_state.le_deep_sleeping_ticks == -1) return;
+    // Don't turn off the display during hour where people are unlikely to wear it
+    if(date_time.unit.hour >= 22 || date_time.unit.hour < 6) return;
+    if(movement_state.le_mode_ticks != -1) {
+        movement_state.le_deep_sleeping_ticks = movement_le_deep_sleep_deadline;
+        return;
+    }
     // Reset whenever the temperature is high enough, so that way, we need multiple hours in a row before going into deep sleep.    
     if (g_temperature_c >= TEMPERATURE_ASSUME_WEARING) movement_state.le_deep_sleeping_ticks = movement_le_deep_sleep_deadline;
     else if (movement_state.le_deep_sleeping_ticks > 0) movement_state.le_deep_sleeping_ticks--;
@@ -387,7 +392,7 @@ static void _decrement_deep_sleep_counter(watch_date_time date_time){
         if (g_temperature_c < TEMPERATURE_ASSUME_WEARING){
             movement_state.le_deep_sleeping_ticks = -1;
             return;
-        } 
+        }
         movement_state.le_deep_sleeping_ticks = movement_le_deep_sleep_deadline;
     }
 }
@@ -401,7 +406,7 @@ static void _movement_handle_background_tasks(void) {
         _movement_update_dst_offset_cache(utc_now);
     }
     
-    if (date_time.unit.minute != 0) {
+    if (date_time.unit.minute == 0) {
         movement_state.settings.bit.is_daytime = _movement_get_if_daytime(date_time, utc_now, &movement_state.prev_sun_info);
     }
 
