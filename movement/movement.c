@@ -296,14 +296,13 @@ static bool _movement_compare_rise_set_dates(rise_set_check_t curr, rise_set_che
 }
 
 static bool _movement_get_if_daytime(watch_date_time date_time, watch_date_time utc_now, rise_set_check_t *prev_rise_set_info) {
-    const uint8_t rise_fallback =  5; // If time's not found, use this hour for the end of sunrise
-    const uint8_t fall_fallback = 22; // If time's not found, use this hour for the end of sunset
+    const uint8_t rise_fallback = 8; // If time's not found, use this hour for the beginning of it being daytime
+    const uint8_t set_fallback = 20; // If time's not found, use this hour for the beginning of it not being daytime
     rise_set_check_t rise_set_info = {0};
     rise_set_info.tz_idx = movement_get_timezone_index();
 
     if (movement_state.location.reg == 0) {
-        prev_rise_set_info->foundTime = false;
-        return ((date_time.unit.hour >= rise_fallback) && (date_time.unit.hour < fall_fallback));
+        return ((date_time.unit.hour >= rise_fallback) && (date_time.unit.hour < set_fallback));
     }
     double rise, set;
     rise_set_info.year = date_time.unit.year;
@@ -312,7 +311,7 @@ static bool _movement_get_if_daytime(watch_date_time date_time, watch_date_time 
     rise_set_info.latitude_centi = (int16_t)movement_state.location.bit.latitude;
     rise_set_info.longitude_centi = (int16_t)movement_state.location.bit.longitude;
     if (_movement_compare_rise_set_dates(rise_set_info, *prev_rise_set_info)) {
-        return ((date_time.unit.hour >= rise_fallback) && (date_time.unit.hour < fall_fallback));
+        return ((date_time.unit.hour >= prev_rise_set_info->hr_rise) && (date_time.unit.hour < prev_rise_set_info->hr_set));
     }
     *prev_rise_set_info = rise_set_info;
     double lat = (double)rise_set_info.latitude_centi / 100.0;
@@ -321,13 +320,14 @@ static bool _movement_get_if_daytime(watch_date_time date_time, watch_date_time 
     double hours_from_utc = ((double)tz) / 3600.0;
     uint8_t result = sun_rise_set(utc_now.unit.year + WATCH_RTC_REFERENCE_YEAR, utc_now.unit.month, utc_now.unit.day, lon, lat, &rise, &set);
     if (result != 0) {
-        prev_rise_set_info->foundTime = false;
-        return ((date_time.unit.hour >= rise_fallback) && (date_time.unit.hour < fall_fallback));
+        return ((date_time.unit.hour >= rise_fallback) && (date_time.unit.hour < set_fallback));
     }
-    uint8_t rise_hr = _movement_get_rise_set_hour(rise, hours_from_utc, true);
-    uint8_t fall_hr =  _movement_get_rise_set_hour(set, hours_from_utc, false);
+    uint8_t hr_rise = _movement_get_rise_set_hour(rise, hours_from_utc, true);
+    uint8_t hr_set =  _movement_get_rise_set_hour(set, hours_from_utc, false);
+    prev_rise_set_info->hr_rise = hr_rise;
+    prev_rise_set_info->hr_set = hr_set;
     prev_rise_set_info->foundTime = true;
-    return ((date_time.unit.hour >= rise_hr) && (date_time.unit.hour < fall_hr));
+    return ((date_time.unit.hour >= hr_rise) && (date_time.unit.hour < hr_set));
 }
 
 static inline void _movement_reset_inactivity_countdown(void) {

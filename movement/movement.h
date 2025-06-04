@@ -255,7 +255,9 @@ typedef struct {
     uint16_t month : 4;     // 1-12
     uint16_t year : 6;      // 0-63 (representing 2020-2083)
     uint16_t foundTime :1;
-    uint8_t tz_idx; // Likely not needed to check, but just in case.
+    uint16_t hr_rise : 5;
+    uint16_t hr_set : 5;
+    uint16_t tz_idx : 7; // Likely not needed to check, but just in case.
 } rise_set_check_t;  // Used for caching the sunrise sunset info
 
 typedef struct {
