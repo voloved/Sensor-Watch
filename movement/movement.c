@@ -154,6 +154,9 @@ of debounce time.
 #define MOVEMENT_DEFAULT_LE_DEEP_SLEEP true
 #endif
 
+#define MOVEMENT_SUNRISE_HR_INIT 8
+#define MOVEMENT_SUNSET_HR_INIT 20
+
 #if __EMSCRIPTEN__
 #include <emscripten.h>
 #endif
@@ -295,14 +298,16 @@ static bool _movement_compare_rise_set_dates(rise_set_check_t curr, rise_set_che
     return true;    
 }
 
+static bool _movement_get_if_daytime_result(uint8_t hr_curr, rise_set_check_t rise_set_info) {
+    return ((hr_curr >= rise_set_info.hr_rise) && (hr_curr < rise_set_info.hr_set));
+}
+
 static bool _movement_get_if_daytime(watch_date_time date_time, watch_date_time utc_now, rise_set_check_t *prev_rise_set_info) {
-    const uint8_t rise_fallback = 8; // If time's not found, use this hour for the beginning of it being daytime
-    const uint8_t set_fallback = 20; // If time's not found, use this hour for the beginning of it not being daytime
     rise_set_check_t rise_set_info = {0};
     rise_set_info.tz_idx = movement_get_timezone_index();
 
-    if (movement_state.location.reg == 0) {
-        return ((date_time.unit.hour >= rise_fallback) && (date_time.unit.hour < set_fallback));
+    if (movement_state.location.reg == 0) {  // No location set
+        return _movement_get_if_daytime_result(date_time.unit.hour, *prev_rise_set_info);
     }
     double rise, set;
     rise_set_info.year = date_time.unit.year;
@@ -311,23 +316,23 @@ static bool _movement_get_if_daytime(watch_date_time date_time, watch_date_time 
     rise_set_info.latitude_centi = (int16_t)movement_state.location.bit.latitude;
     rise_set_info.longitude_centi = (int16_t)movement_state.location.bit.longitude;
     if (_movement_compare_rise_set_dates(rise_set_info, *prev_rise_set_info)) {
-        return ((date_time.unit.hour >= prev_rise_set_info->hr_rise) && (date_time.unit.hour < prev_rise_set_info->hr_set));
+        return _movement_get_if_daytime_result(date_time.unit.hour, *prev_rise_set_info);
     }
+    rise_set_info.hr_rise = prev_rise_set_info->hr_rise;
+    rise_set_info.hr_set = prev_rise_set_info->hr_set;
     *prev_rise_set_info = rise_set_info;
     double lat = (double)rise_set_info.latitude_centi / 100.0;
     double lon = (double)rise_set_info.longitude_centi / 100.0;
     int32_t tz = movement_get_current_timezone_offset_for_zone(rise_set_info.tz_idx);
     double hours_from_utc = ((double)tz) / 3600.0;
     uint8_t result = sun_rise_set(utc_now.unit.year + WATCH_RTC_REFERENCE_YEAR, utc_now.unit.month, utc_now.unit.day, lon, lat, &rise, &set);
-    if (result != 0) {
-        return ((date_time.unit.hour >= rise_fallback) && (date_time.unit.hour < set_fallback));
+    if (result != 0) { // Failed to calculate sun rise/set; fallback to previously cached values
+        return _movement_get_if_daytime_result(date_time.unit.hour, *prev_rise_set_info);
     }
-    uint8_t hr_rise = _movement_get_rise_set_hour(rise, hours_from_utc, true);
-    uint8_t hr_set =  _movement_get_rise_set_hour(set, hours_from_utc, false);
-    prev_rise_set_info->hr_rise = hr_rise;
-    prev_rise_set_info->hr_set = hr_set;
+    prev_rise_set_info->hr_rise = _movement_get_rise_set_hour(rise, hours_from_utc, true);
+    prev_rise_set_info->hr_set =  _movement_get_rise_set_hour(set, hours_from_utc, false);
     prev_rise_set_info->foundTime = true;
-    return ((date_time.unit.hour >= hr_rise) && (date_time.unit.hour < hr_set));
+    return _movement_get_if_daytime_result(date_time.unit.hour, *prev_rise_set_info);
 }
 
 static inline void _movement_reset_inactivity_countdown(void) {
@@ -814,6 +819,8 @@ void app_setup(void) {
 #endif
 
         watch_date_time date_time = watch_utility_date_time_convert_zone(utc_now, 0, movement_get_current_timezone_offset());
+        movement_state.prev_sun_info.hr_rise = MOVEMENT_SUNRISE_HR_INIT;
+        movement_state.prev_sun_info.hr_set = MOVEMENT_SUNSET_HR_INIT;
         movement_state.settings.bit.is_daytime = _movement_get_if_daytime(date_time, utc_now, &movement_state.prev_sun_info);
         // set up the 1 minute alarm (for background tasks and low power updates)
         watch_date_time alarm_time;
