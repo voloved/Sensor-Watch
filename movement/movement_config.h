@@ -41,7 +41,6 @@ const watch_face_t watch_faces[] = {
     periodic_face,
     simple_calculator_face,
     kitchen_conversions_face,
-    festival_schedule_face,
     wyoscan_face,
 // Start of Secondary Faces
     preferences_face,
