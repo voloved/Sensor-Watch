@@ -376,20 +376,20 @@ static inline void _movement_disable_fast_tick_if_possible(void) {
     }
 }
 
-static void _decrement_deep_sleep_counter(void){
+static void _decrement_deep_sleep_counter(void) {
     if(!movement_state.settings.bit.screen_off_after_le) return;
     if (movement_state.le_deep_sleeping_ticks == -1) return;
     if(movement_state.le_mode_ticks != -1) return;
     // Reset whenever the temperature is high enough, so that way, we need multiple hours in a row before going into deep sleep.    
     if (g_temperature_c >= TEMPERATURE_ASSUME_WEARING) movement_state.le_deep_sleeping_ticks = movement_le_deep_sleep_deadline;
     else if (movement_state.le_deep_sleeping_ticks > 0) movement_state.le_deep_sleeping_ticks--;
-    else{
+    else {
         if (g_temperature_c == -128) return; // Ignore when the temp is not first read without affecting the timer.
         // Re-check temperature in case the user wore the watch after the last reading.
         thermistor_driver_enable();
         g_temperature_c = thermistor_driver_get_temperature();
         thermistor_driver_disable();
-        if (g_temperature_c < TEMPERATURE_ASSUME_WEARING){
+        if (g_temperature_c < TEMPERATURE_ASSUME_WEARING) {
             movement_state.le_deep_sleeping_ticks = -1;
             return;
         }
