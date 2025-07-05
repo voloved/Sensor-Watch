@@ -359,18 +359,20 @@ void movement_set_local_date_time(watch_date_time date_time);
 static const uint8_t Hourly_Chime_Start[] =
 {
     6,  // 6am
-    7,  // 7am
+    8,  // 8am
     10, // 10am
     12  // 12pm if no long and lat set; sunset otherwise
 };
 
 static const uint8_t Hourly_Chime_End[] =
 {
+    18, // 6pm
     20, // 8pm
-    21, // 9pm
     22, // 10pm
-    00  // 12am if no long and lat set; sunrise otherwise
+    24  // 12am if no long and lat set; sunrise otherwise
 };
+
+static const uint8_t Hourly_Chime_Middle = 16; // Just needs to be number between the highest Hourly_Chime_Start and lowest Hourly_Chime_End
 
 typedef enum {
     SIGNAL_TUNE_ORIGINAL,

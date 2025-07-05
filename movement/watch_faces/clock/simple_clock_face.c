@@ -27,7 +27,6 @@
 #include "watch.h"
 #include "watch_utility.h"
 #include "watch_private_display.h"
-#include "sunriset.h"
 
 static watch_date_time date_time;
 
@@ -92,8 +91,8 @@ void simple_clock_face_activate(movement_settings_t *settings, void *context) {
 
     // this ensures that none of the timestamp fields will match, so we can re-render them all.
     state->previous_date_time.reg = 0xFFFFFFFF;
-    state->showingLogo = false;
-
+    state->showing_logo = false;
+    state->lat_long_set = watch_get_backup_data(1) != 0;
     state->birth_date.reg = watch_get_backup_data(2);
 }
 
@@ -104,9 +103,9 @@ bool simple_clock_face_loop(movement_event_t event, movement_settings_t *setting
 
     watch_date_time previous_date_time;
 
-    if (state->showingLogo){
+    if (state->showing_logo){
         if (!watch_get_pin_level(BTN_ALARM)){
-            state->showingLogo = false;
+            state->showing_logo = false;
             go_to_teriary_face();
         }
         return true;
@@ -176,7 +175,7 @@ bool simple_clock_face_loop(movement_event_t event, movement_settings_t *setting
             if (state->alarm_enabled != settings->bit.alarm_enabled) _update_alarm_indicator(settings->bit.alarm_enabled, state);
             break;
         case EVENT_ALARM_LONGER_PRESS:
-            state->showingLogo = true;
+            state->showing_logo = true;
             state->signal_enabled = !state->signal_enabled;
             watch_clear_all_indicators();
             watch_clear_colon();
@@ -233,12 +232,13 @@ bool simple_clock_face_wants_background_task(movement_settings_t *settings, void
     if (date_time.unit.minute != 0) return false;
     if (settings->bit.hourly_chime_always) return true;
 
-    bool use_chime_start_time = date_time.unit.hour < 16;  // Just needs to be number between the highest Hourly_Chime_Start and lowest Hourly_Chime_End
-    if (settings->bit.hourly_chime_start == 3 && use_chime_start_time && settings->bit.is_daytime) return true;
-    if (settings->bit.hourly_chime_end == 3 && !use_chime_start_time && settings->bit.is_daytime) return true;
-    uint8_t chime_start = Hourly_Chime_Start[settings->bit.hourly_chime_start];
-    uint8_t chime_end = Hourly_Chime_End[settings->bit.hourly_chime_end];
-    if (date_time.unit.hour < chime_start || date_time.unit.hour >= chime_end) return false;
-
-    return true;
+    bool use_chime_start_time = date_time.unit.hour < Hourly_Chime_Middle;
+    if (((use_chime_start_time && settings->bit.hourly_chime_start == 3) ||
+        (!use_chime_start_time && settings->bit.hourly_chime_end == 3)) &&
+        state->lat_long_set) {
+        return settings->bit.is_daytime;
+    }
+    return use_chime_start_time
+        ? (date_time.unit.hour >= Hourly_Chime_Start[settings->bit.hourly_chime_start])
+        : (date_time.unit.hour < Hourly_Chime_End[settings->bit.hourly_chime_end]);
 }
