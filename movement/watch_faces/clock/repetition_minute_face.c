@@ -27,7 +27,6 @@
 #include "watch.h"
 #include "watch_utility.h"
 #include "watch_private_display.h"
-#include "sunriset.h"
 
 void play_hour_chime(void) {
         watch_buzzer_play_note(BUZZER_NOTE_C6, 75);
@@ -218,12 +217,13 @@ bool repetition_minute_face_wants_background_task(movement_settings_t *settings,
     if (date_time.unit.minute != 0) return false;
     if (settings->bit.hourly_chime_always) return true;
 
-    bool use_chime_start_time = date_time.unit.hour < 16;
-    if (settings->bit.hourly_chime_start == 3 && use_chime_start_time && settings->bit.is_daytime) return true;
-    if (settings->bit.hourly_chime_end == 3 && !use_chime_start_time && settings->bit.is_daytime) return true;
-    uint8_t chime_start = Hourly_Chime_Start[settings->bit.hourly_chime_start];
-    uint8_t chime_end = Hourly_Chime_End[settings->bit.hourly_chime_end];
-    if (date_time.unit.hour < chime_start || date_time.unit.hour >= chime_end) return false;
-
-    return true;
+    bool use_chime_start_time = date_time.unit.hour < Hourly_Chime_Middle;
+    if (((use_chime_start_time && settings->bit.hourly_chime_start == 3) ||
+        (!use_chime_start_time && settings->bit.hourly_chime_end == 3)) &&
+        watch_get_backup_data(1) != 0) {
+        return settings->bit.is_daytime;
+    }
+    return use_chime_start_time
+        ? (date_time.unit.hour >= Hourly_Chime_Start[settings->bit.hourly_chime_start])
+        : (date_time.unit.hour < Hourly_Chime_End[settings->bit.hourly_chime_end]);
 }
