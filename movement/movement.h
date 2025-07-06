@@ -66,8 +66,8 @@ typedef union {
         bool use_imperial_units : 1;        // indicates whether to use metric units (the default) or imperial.
         bool alarm_enabled : 1;             // indicates whether there is at least one alarm enabled.
         bool hourly_chime_always : 1;       // if true, then ignore the 
-        uint8_t hourly_chime_start : 2;     // 0: 6am; 1: 7am; 2: 10am; 3: 12pm; 
-        uint8_t hourly_chime_end : 2;       // 0: 8pm; 1: 9pm; 2: 10pm; 3: 12am;
+        uint8_t hourly_chime_start : 2;     // 0: 6am; 1: 8am; 2: 10am; 3: 12pm; 
+        uint8_t hourly_chime_end : 2;       // 0: 6pm; 1: 8pm; 2: 10pm; 3: 12am;
         bool screen_off_after_le : 1;       // If true and we're in LE mode and it's the top of the hour and the temp is below #DEFAULT_TEMP_ASSUME_WEARING but not zero, then turn off the screen and other tasks.
         bool is_daytime : 1;                // If true, we know it's daytime
         uint8_t unused : 1;
