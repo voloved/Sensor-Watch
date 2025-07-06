@@ -34,6 +34,7 @@ static void _sync_slcd(void) {
 }
 
 void watch_enable_display(void) {
+    if (SLCD->CTRLA.bit.ENABLE) return;
     SEGMENT_LCD_0_init();
     slcd_sync_enable(&SEGMENT_LCD_0);
 }
