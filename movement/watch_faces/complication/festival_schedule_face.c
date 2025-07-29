@@ -70,6 +70,7 @@ const char festival_genre[FESTIVAL_SCHEDULE_GENRE_COUNT + 1][6] =
     [FESTIVAL_SCHEDULE_RnB]         = " rnb  ",
     [FESTIVAL_SCHEDULE_COUNTRY]     = "Cuntry",
     [FESTIVAL_SCHEDULE_FOLK]        = " FOLK ",
+    [FESTIVAL_SCHEDULE_CLASSICAL]   = " ClASS",
     [FESTIVAL_SCHEDULE_OTHER]       = "OTHEr ",
     [FESTIVAL_SCHEDULE_GENRE_COUNT] = "      "
 };
@@ -520,10 +521,10 @@ bool festival_schedule_face_loop(movement_event_t event, movement_settings_t *se
     bool changed_from_handle_ticks;
     switch (event.event_type) {
         case EVENT_ACTIVATE:
-            in_le = false;
-            if (state->curr_act == FESTIVAL_SCHEDULE_NUM_ACTS) {
+            if (!in_le && state->curr_act == FESTIVAL_SCHEDULE_NUM_ACTS) {
                 _display_title(state);
             }
+            in_le = false;
             break;
         case EVENT_TICK:
             changed_from_handle_ticks = handle_tick(state, settings);
