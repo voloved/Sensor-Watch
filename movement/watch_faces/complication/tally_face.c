@@ -28,7 +28,7 @@
 #include "watch.h"
 
 #define TALLY_FACE_MAX 9999
-#define TALLY_FACE_MIN -99
+#define TALLY_FACE_MIN -999
 
 static bool _init_val;
 static bool _quick_ticks_running;
@@ -182,10 +182,7 @@ void print_tally(tally_state_t *state, bool sound_on) {
         watch_set_indicator(WATCH_INDICATOR_BELL);
     else
         watch_clear_indicator(WATCH_INDICATOR_BELL);
-    if (state->tally_idx >= 0)
-        sprintf(buf, "TA  %4d  ", (int)(state->tally_idx)); // center of LCD display
-    else
-        sprintf(buf, "TA     %-3d", (int)(state->tally_idx)); // center of LCD display
+    sprintf(buf, "TA  %4d  ", (int)(state->tally_idx)); // center of LCD display
     watch_display_string(buf, 0);
 }
 
