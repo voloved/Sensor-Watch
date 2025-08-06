@@ -28,7 +28,7 @@
 #include "festival_schedule_arr.h"
 #include "watch_utility.h"
 
-const char festival_name[2] = "LA";
+const char festival_name[2] = "LO";
 
 const char festival_stage[FESTIVAL_SCHEDULE_STAGE_COUNT + 1][2] =
 {
@@ -38,7 +38,7 @@ const char festival_stage[FESTIVAL_SCHEDULE_STAGE_COUNT + 1][2] =
     [FESTIVAL_SCHEDULE_PERRYS]      = "PR",
     [FESTIVAL_SCHEDULE_THE_GROVE]   = "GR",
     [FESTIVAL_SCHEDULE_LAKESHORE]   = "L ",
-    [FESTIVAL_SCHEDULE_TITOS]       = "TO",
+    [FESTIVAL_SCHEDULE_TITOS]       = "TI",
     [FESTIVAL_SCHEDULE_BMI]         = "BM",
     [FESTIVAL_SCHEDULE_MUSIC_DEN]   = "dE",
     [FESTIVAL_SCHEDULE_BACKYARD]    = "YD",
@@ -593,7 +593,7 @@ bool festival_schedule_face_loop(movement_event_t event, movement_settings_t *se
             break;
         case EVENT_MODE_BUTTON_UP:
             if (state->curr_screen == FESTIVAL_SCHEDULE_SCREEN_TITLE) movement_move_to_next_face();
-            else if (state->curr_act == FESTIVAL_SCHEDULE_NUM_ACTS) break;
+            else if (state->curr_act == FESTIVAL_SCHEDULE_NUM_ACTS) _display_title(state);
             else if (!_is_text_looping && _text_can_loop(_text_looping, MAX_LENGTH)) _is_text_looping = true;
             else {
                 do
