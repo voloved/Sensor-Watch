@@ -160,8 +160,8 @@ bool morsecalc_face_loop(movement_event_t event, movement_settings_t *settings, 
     case EVENT_LIGHT_LONG_PRESS:
         mcs->led_is_on = !mcs->led_is_on;
         if(mcs->led_is_on) {
-            watch_set_led_color(get_color_val(settings->bit.led_red_color),
-                                get_color_val(settings->bit.led_green_color));
+            watch_set_led_color(watch_get_color_val(settings->bit.led_red_color),
+                                watch_get_color_val(settings->bit.led_green_color));
             movement_request_tick_frequency(4);
         }
         else {
@@ -180,8 +180,8 @@ bool morsecalc_face_loop(movement_event_t event, movement_settings_t *settings, 
 
     case EVENT_TICK:
         if(mcs->led_is_on) { 
-            watch_set_led_color(get_color_val(settings->bit.led_red_color),
-                                get_color_val(settings->bit.led_green_color));
+            watch_set_led_color(watch_get_color_val(settings->bit.led_red_color),
+                                watch_get_color_val(settings->bit.led_green_color));
 		}
         break;
     case EVENT_LIGHT_BUTTON_DOWN:

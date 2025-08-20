@@ -49,7 +49,7 @@ void watch_set_led_color_rgb(uint8_t red, uint8_t green, uint8_t blue) {
     watch_set_led_color(red, green);
 }
 
-uint8_t get_color_val(uint8_t led_color) {
+uint8_t watch_get_color_val(uint8_t led_color) {
     if (led_color == 0) return 0;
     if (led_color == 7) return 0xFF;
     return (0xF | led_color << 5);

@@ -77,7 +77,7 @@ void watch_set_led_color_rgb(uint8_t red, uint8_t green, uint8_t blue);
   * @param led_color The color from the setting (0-7).
   * @return A value from 0 to 255 for the LED intensity.
   */
-uint8_t get_color_val(uint8_t led_color);
+uint8_t watch_get_color_val(uint8_t led_color);
 
 /** @brief Sets the red LED to full brightness, and turns the green LED off.
   * @details Of the two LED's in the RG bi-color LED, the red LED is the less power-efficient one (~4.5 mA).
