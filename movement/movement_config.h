@@ -32,24 +32,19 @@ const watch_face_t watch_faces[] = {
     stock_stopwatch_face,
     countdown_face,
     alarm_face,
-    probability_face,
     tally_face,
+    probability_face,
     sunrise_sunset_face,
     world_clock2_face,
     moon_phase_face,
+    periodic_face,
     party_face,
     festival_schedule_face,
-    periodic_face,
-    simple_calculator_face,
-    kitchen_conversions_face,
-    wyoscan_face,
 // Start of Secondary Faces
     preferences_face,
     set_time_face,
     thermistor_logging_face,
     voltage_face,
-    finetune_face,
-    nanosec_face,
 // Start of Teriary Faces
     endless_runner_face,
     wordle_face,
@@ -69,7 +64,7 @@ const watch_face_t watch_faces[] = {
  * If you don't want any faces to be excluded, set this to 0 and a long Mode press will have no effect.
  */
 #define MOVEMENT_TERIARY_FACE_INDEX (MOVEMENT_NUM_FACES - 7)
-#define MOVEMENT_SECONDARY_FACE_INDEX (MOVEMENT_TERIARY_FACE_INDEX - 6) // or (0)
+#define MOVEMENT_SECONDARY_FACE_INDEX (MOVEMENT_TERIARY_FACE_INDEX - 4) // or (0)
 
 /* Custom hourly chime tune. Check movement_custom_signal_tunes.h for options. */
 #define SIGNAL_TUNE_DEFAULT SIGNAL_TUNE_SONG_OF_STORMS
