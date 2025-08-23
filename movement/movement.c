@@ -556,7 +556,11 @@ void movement_move_to_next_face(void) {
     } else {
         face_max = MOVEMENT_NUM_FACES;
     }
-    movement_move_to_face((movement_state.current_face_idx + 1) % face_max);
+    if (MOVEMENT_TERIARY_FACE_INDEX & (movement_state.current_face_idx == MOVEMENT_NUM_FACES - 1)) {
+        go_to_teriary_face();
+    } else {
+        movement_move_to_face((movement_state.current_face_idx + 1) % face_max);
+    }
 }
 
 void movement_schedule_background_task(watch_date_time date_time) {
