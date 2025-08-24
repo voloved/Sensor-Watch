@@ -32,6 +32,7 @@ static bool _displaying_curr;
 
 static void _voltage_face_update_display(void) {
     char buf[14];
+    _displaying_curr = true;
 
     watch_enable_adc();
     float voltage = (float)watch_get_vcc_voltage() / 1000.0;
