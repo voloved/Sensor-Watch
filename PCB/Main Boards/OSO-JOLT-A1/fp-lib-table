@@ -1,0 +1,5 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "OSO-SWAT-A1-05")(type "KiCad")(uri "$(KIPRJMOD)/OSO-JOLT-A1.pretty")(options "")(descr ""))
+  (lib (name "OSO-SWD")(type "KiCad")(uri "${KIPRJMOD}/OSO-SWD.pretty")(options "")(descr ""))
+)
