@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 0,
+    "active_layer": 17,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
@@ -48,7 +48,7 @@
       "drc_warnings",
       "shapes"
     ],
-    "visible_layers": "00000000_00000000_00015055_80000001",
+    "visible_layers": "00000000_00000000_0001505f_aa8aaaff",
     "zone_display_mode": 0
   },
   "git": {
@@ -58,7 +58,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "OSO-SWAT-C1.kicad_prl",
+    "filename": "OSO-JOLT-A1.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {
