@@ -1,0 +1,206 @@
+(footprint "CASIO-DW5600-USB"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0.05 -1.57 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "b7c4d76f-8309-4968-8dad-afa9c7124619")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "Val**"
+		(at 0.15 1.5 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "bdcefaed-5bfc-48d4-b5cd-0f76c5176943")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d66b5e82-19dc-41a3-a1de-a8d8364aab5b")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "80556e5b-2d99-4509-b93d-20fd5169b0e6")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_line
+		(start -3.369 0.657216)
+		(end -2.919023 2.067889)
+		(stroke
+			(width 0.025)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "6176e96d-4e82-422a-848a-08076f8ac367")
+	)
+	(fp_line
+		(start -2.009126 -0.81518)
+		(end -1.290725 1.579376)
+		(stroke
+			(width 0.025)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "a6c3f864-366e-4265-9333-ea7a94e84bd4")
+	)
+	(fp_line
+		(start -1.875033 -1.064217)
+		(end 1.094217 -1.955034)
+		(stroke
+			(width 0.025)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "58d98501-a1e6-4ab2-ab59-75275ba61cd1")
+	)
+	(fp_line
+		(start -1.292323 1.574051)
+		(end -2.920619 2.062563)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "aafa1078-03f6-465c-97aa-45249cb8ba01")
+	)
+	(fp_line
+		(start 1.343254 -1.820942)
+		(end 2.061654 0.573615)
+		(stroke
+			(width 0.025)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "d7cdfbf2-9537-4cda-8eb4-91282637f83d")
+	)
+	(fp_line
+		(start 2.061654 0.573615)
+		(end 3.689952 0.085102)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "d83167bb-4add-4d68-be9d-8f3d84695bac")
+	)
+	(fp_line
+		(start 3.22137 -1.130693)
+		(end 3.689952 0.085102)
+		(stroke
+			(width 0.025)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "e84d1760-494f-45a2-8087-ad907e413583")
+	)
+	(fp_arc
+		(start -2.009126 -0.81518)
+		(mid -1.993657 -0.967471)
+		(end -1.875033 -1.064217)
+		(stroke
+			(width 0.025)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "e42da76f-6ef9-4350-a368-5b2fb45368cb")
+	)
+	(fp_arc
+		(start -1.290725 1.579376)
+		(mid -1.860617 2.637782)
+		(end -2.919023 2.067889)
+		(stroke
+			(width 0.025)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "27e1340e-b322-4543-8031-6739b5a1c2b3")
+	)
+	(fp_arc
+		(start 1.094217 -1.955034)
+		(mid 1.246506 -1.939565)
+		(end 1.343254 -1.820942)
+		(stroke
+			(width 0.025)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "33690c63-89a0-4374-9cca-1f0b9aeeafdd")
+	)
+	(fp_arc
+		(start 3.689952 0.085102)
+		(mid 3.120059 1.143507)
+		(end 2.061654 0.573615)
+		(stroke
+			(width 0.025)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "314e6a53-97ee-4c76-9c6a-438cf5b6c050")
+	)
+	(pad "GND" smd rect
+		(at 1.300169 -0.398569 106.7)
+		(size 2.3 0.37)
+		(layers "F.Cu" "F.Mask")
+		(solder_mask_margin 0.0635)
+		(uuid "e3e82b1c-9b23-4425-9e7e-5d4c23b40510")
+	)
+	(pad "USB_ID" smd rect
+		(at 0.677584 -0.211784 106.7)
+		(size 2.3 0.37)
+		(layers "F.Cu" "F.Mask")
+		(solder_mask_margin 0.0635)
+		(uuid "01ebd03f-5aec-4880-a470-6732ee55cab2")
+	)
+	(pad "USB_N" smd rect
+		(at -0.567585 0.161784 106.7)
+		(size 2.3 0.37)
+		(layers "F.Cu" "F.Mask")
+		(solder_mask_margin 0.0635)
+		(uuid "ee44e084-7b2d-4687-9433-b23df367e29d")
+	)
+	(pad "USB_P" smd rect
+		(at 0.055 -0.025 106.7)
+		(size 2.3 0.37)
+		(layers "F.Cu" "F.Mask")
+		(solder_mask_margin 0.0635)
+		(uuid "d2b25975-6a31-47a7-a91b-a970e3f381e2")
+	)
+	(pad "VBUS" smd rect
+		(at -1.190169 0.348569 106.7)
+		(size 2.3 0.37)
+		(layers "F.Cu" "F.Mask")
+		(solder_mask_margin 0.0635)
+		(uuid "da2fc07b-eca0-4b10-a35b-8f3e5ad27f3c")
+	)
+	(embedded_fonts no)
+)

@@ -1,0 +1,66 @@
+(footprint "CASIO-DW5600-BTN"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0.05 -1.57 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "b7c4d76f-8309-4968-8dad-afa9c7124619")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "Val**"
+		(at 0.15 1.5 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "bdcefaed-5bfc-48d4-b5cd-0f76c5176943")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d66b5e82-19dc-41a3-a1de-a8d8364aab5b")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "80556e5b-2d99-4509-b93d-20fd5169b0e6")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "BTN" thru_hole circle
+		(at 0 0)
+		(size 2.5 2.5)
+		(drill 2.1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.0635)
+		(uuid "8543aaf6-646b-44a1-96ec-c3488daed48a")
+	)
+	(embedded_fonts no)
+)
