@@ -402,7 +402,7 @@
 		(uuid "0d8e8b9d-f602-4082-9986-2fa64cd14329")
 	)
 	(fp_line
-		(start 11.432905 8.82)
+		(start 11.433881 8.807)
 		(end 11.432905 7.67)
 		(stroke
 			(width 0.025)
@@ -994,26 +994,15 @@
 		(uuid "a8567f47-67d1-4057-8904-bdbe4cfdf57b")
 	)
 	(fp_arc
-		(start 11.432905 8.82)
-		(mid 11.43019 8.83673)
-		(end 11.422324 8.851743)
+		(start 11.433881 8.807)
+		(mid 11.431024 8.8297)
+		(end 11.41872 8.84899)
 		(stroke
 			(width 0.025)
 			(type solid)
 		)
 		(layer "Edge.Cuts")
 		(uuid "eb274a07-caf0-4c16-b1b2-c4459190bc36")
-	)
-	(fp_circle
-		(center -5.1 -3.6)
-		(end -4.5 -3.6)
-		(stroke
-			(width 0.05)
-			(type solid)
-		)
-		(fill no)
-		(layer "Edge.Cuts")
-		(uuid "abb0504c-6c44-4252-a093-63a13b8af287")
 	)
 	(fp_curve
 		(pts
