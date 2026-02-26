@@ -635,7 +635,7 @@
 			(pin output line
 				(at -17.78 -13.97 90)
 				(length 5.08)
-				(name "e"
+				(name "B2"
 					(effects
 						(font
 							(size 1.27 1.27)
