@@ -17,22 +17,23 @@
     },
     "ratsnest_display_mode": 0,
     "selection_filter": {
-      "dimensions": false,
+      "dimensions": true,
       "footprints": true,
-      "graphics": false,
-      "keepouts": false,
+      "graphics": true,
+      "keepouts": true,
       "lockedItems": false,
-      "otherItems": false,
-      "pads": false,
-      "text": false,
+      "otherItems": true,
+      "pads": true,
+      "text": true,
       "tracks": true,
       "vias": true,
-      "zones": false
+      "zones": true
     },
     "visible_items": [
       "vias",
       "footprint_text",
       "footprint_anchors",
+      "ratsnest",
       "grid",
       "footprints_front",
       "footprints_back",
@@ -121,14 +122,14 @@
   },
   "schematic": {
     "selection_filter": {
-      "graphics": true,
-      "images": true,
+      "graphics": false,
+      "images": false,
       "labels": true,
       "lockedItems": false,
-      "otherItems": true,
-      "pins": true,
+      "otherItems": false,
+      "pins": false,
       "symbols": true,
-      "text": true,
+      "text": false,
       "wires": true
     }
   }
