@@ -1423,546 +1423,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OSO-MISC-21-021 Sensor Watch Motion II-eagle-import:CAP_CERAMIC_0603MP"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "C"
-				(at -2.29 1.25 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "CAP_CERAMIC_0603MP"
-				(at 2.3 1.25 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "OSO-MISC-21-021 Sensor Watch Motion II:_0603MP"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "CAP_CERAMIC_0603MP_1_0"
-				(rectangle
-					(start -1.27 1.524)
-					(end 1.27 2.032)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start -1.27 0.508)
-					(end 1.27 1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0 1.778)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0.762) (xy 0 0)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at 0 5.08 270)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 90)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "OSO-MISC-21-021 Sensor Watch Motion II-eagle-import:GND"
-			(power)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" "GND"
-				(at -1.524 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.0795)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Footprint" "OSO-MISC-21-021 Sensor Watch Motion II:"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "GND_1_0"
-				(polyline
-					(pts
-						(xy -1.27 0) (xy 1.27 0)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin power_in line
-					(at 0 2.54 270)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "OSO-MISC-21-021 Sensor Watch Motion II-eagle-import:LIS2DW12TR"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at -15.2439 12.7032 0)
-				(effects
-					(font
-						(size 1.7784 1.5116)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Value" "LIS2DW12TR"
-				(at -15.2494 -17.7909 0)
-				(effects
-					(font
-						(size 1.779 1.5121)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Footprint" "OSO-MISC-21-021 Sensor Watch Motion II:LGA12R50P4X4_200X200X70"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "LIS2DW12TR_1_0"
-				(polyline
-					(pts
-						(xy -15.24 12.7) (xy 15.24 12.7)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -15.24 -15.24) (xy -15.24 12.7)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 15.24 12.7) (xy 15.24 -15.24)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 15.24 -15.24) (xy -15.24 -15.24)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin input clock
-					(at -20.32 2.54 0)
-					(length 5.08)
-					(name "SCL/SPC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -20.32 0 0)
-					(length 5.08)
-					(name "CS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at -20.32 -5.08 0)
-					(length 5.08)
-					(name "SDO/SDA0"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at -20.32 -7.62 0)
-					(length 5.08)
-					(name "SDA/SDI/SDO"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 20.32 10.16 180)
-					(length 5.08)
-					(name "VDD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 20.32 7.62 180)
-					(length 5.08)
-					(name "VDD_IO"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "10"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 20.32 2.54 180)
-					(length 5.08)
-					(name "INT1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "12"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 20.32 0 180)
-					(length 5.08)
-					(name "INT2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "11"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 20.32 -5.08 180)
-					(length 5.08)
-					(name "RES"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 20.32 -12.7 180)
-					(length 5.08)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 20.32 -12.7 180)
-					(length 5.08)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "OSO-SWAT-A1-05-eagle-import:+3V3"
 			(power)
 			(exclude_from_sim no)
@@ -4041,6 +3501,313 @@
 						(effects
 							(font
 								(size 0 0)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "OSO-SWAT-A1-05-eagle-import:FH19C-9S-0.5SH_10_"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 19.05 7.62 0)
+				(effects
+					(font
+						(size 1.778 1.5113)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "FH19C-9S-0.5SH_10_"
+				(at 19.05 5.08 0)
+				(effects
+					(font
+						(size 1.778 1.5113)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "OSO-SWAT-A1-05:FH19C9S05SH10"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "FH19C-9S-0.5SH_10__1_0"
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 5.08 -22.86)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 17.78 2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 17.78 -22.86) (xy 5.08 -22.86)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 17.78 -22.86) (xy 17.78 2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin bidirectional line
+					(at 0 0 0)
+					(length 5.08)
+					(name "MP1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "MP1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "MP2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "MP2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 22.86 0 180)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 22.86 -2.54 180)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 22.86 -5.08 180)
+					(length 5.08)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 22.86 -7.62 180)
+					(length 5.08)
+					(name "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 22.86 -10.16 180)
+					(length 5.08)
+					(name "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 22.86 -12.7 180)
+					(length 5.08)
+					(name "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 22.86 -15.24 180)
+					(length 5.08)
+					(name "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 22.86 -17.78 180)
+					(length 5.08)
+					(name "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 22.86 -20.32 180)
+					(length 5.08)
+					(name "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
 							)
 						)
 					)
@@ -7450,12 +7217,6 @@
 		(uuid "03c6aaae-4a8a-43eb-bd09-4e5f221beff4")
 	)
 	(junction
-		(at 210.82 25.4)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0b3bae4d-19c8-48c1-9641-5ccb35b5400c")
-	)
-	(junction
 		(at 34.29 90.17)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7558,28 +7319,10 @@
 		(uuid "6af69ee9-03ff-4f16-8438-8e0444b6f0e3")
 	)
 	(junction
-		(at 274.32 38.1)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "72697851-ff58-45fb-a464-dd0d4a725474")
-	)
-	(junction
-		(at 292.1 22.86)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "753f96d9-32cb-4926-a349-5ad22c5eee87")
-	)
-	(junction
 		(at 119.38 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7f4f09dc-06e0-4164-8d07-ffe9071964ac")
-	)
-	(junction
-		(at 292.1 15.24)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8004956f-7e59-41e0-ae3c-6fa5d9104100")
 	)
 	(junction
 		(at 40.64 60.96)
@@ -7594,7 +7337,7 @@
 		(uuid "8a0dccd7-0714-4dc3-af63-f24a4bb4eda1")
 	)
 	(junction
-		(at 261.62 66.04)
+		(at 271.78 27.94)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "96273c53-2e59-4684-87c2-b6243a18d881")
@@ -7622,12 +7365,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b03cc83a-8eee-4dde-ab76-f450d218f4bb")
-	)
-	(junction
-		(at 292.1 17.78)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b6ba4f45-0e69-424c-9be3-679ead1dadee")
 	)
 	(junction
 		(at 55.88 66.04)
@@ -7676,6 +7413,10 @@
 		(uuid "1f8e96c3-d927-444c-b9f2-1b0c692cbc52")
 	)
 	(no_connect
+		(at 228.6 46.99)
+		(uuid "47ad59f3-f88c-456f-825a-4ccce170d988")
+	)
+	(no_connect
 		(at 130.81 38.1)
 		(uuid "493ed970-0dc3-4c43-bb6e-b82ce2cec551")
 	)
@@ -7712,6 +7453,16 @@
 			(type default)
 		)
 		(uuid "0301b5c9-7944-4cfd-9d1b-9c02e5d610b4")
+	)
+	(wire
+		(pts
+			(xy 245.11 31.75) (xy 245.11 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "032609f8-706f-4e39-94aa-2a5e4d236100")
 	)
 	(wire
 		(pts
@@ -7805,16 +7556,6 @@
 	)
 	(wire
 		(pts
-			(xy 274.32 30.48) (xy 274.32 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0c78b319-0c42-4219-9c1b-733d316175c7")
-	)
-	(wire
-		(pts
 			(xy 53.34 43.18) (xy 53.34 40.64)
 		)
 		(stroke
@@ -7875,6 +7616,16 @@
 	)
 	(wire
 		(pts
+			(xy 241.3 39.37) (xy 228.6 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "13ff2704-9f02-4e0f-946a-546ab16c159f")
+	)
+	(wire
+		(pts
 			(xy 119.38 86.36) (xy 119.38 88.9)
 		)
 		(stroke
@@ -7895,17 +7646,7 @@
 	)
 	(wire
 		(pts
-			(xy 218.44 21.59) (xy 218.44 22.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "16448b51-ca1d-4e6d-8427-1f12b84bddcd")
-	)
-	(wire
-		(pts
-			(xy 261.62 66.04) (xy 279.4 66.04)
+			(xy 271.78 27.94) (xy 289.56 27.94)
 		)
 		(stroke
 			(width 0)
@@ -7935,16 +7676,6 @@
 	)
 	(wire
 		(pts
-			(xy 226.06 22.86) (xy 218.44 22.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "17d6b487-2b82-4785-a829-0de1943c7db4")
-	)
-	(wire
-		(pts
 			(xy 30.48 149.86) (xy 45.72 149.86)
 		)
 		(stroke
@@ -7952,16 +7683,6 @@
 			(type default)
 		)
 		(uuid "1828c5a1-06d3-4916-9b0c-f69832619846")
-	)
-	(wire
-		(pts
-			(xy 284.48 38.1) (xy 284.48 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1af4ae12-861d-4794-a2b2-52032952bae9")
 	)
 	(wire
 		(pts
@@ -7992,6 +7713,16 @@
 			(type default)
 		)
 		(uuid "1db2279b-9277-4d7e-9b36-7b6527e583f2")
+	)
+	(wire
+		(pts
+			(xy 245.11 26.67) (xy 245.11 21.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1dd028ba-80d9-45bd-a8ad-6a15e1856e9a")
 	)
 	(wire
 		(pts
@@ -8032,16 +7763,6 @@
 			(type default)
 		)
 		(uuid "22dcb0ad-9467-42b7-99a9-cec3379d6a7c")
-	)
-	(wire
-		(pts
-			(xy 266.7 38.1) (xy 274.32 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2369394b-3e50-4a75-b202-0385fbe3b09a")
 	)
 	(wire
 		(pts
@@ -8125,16 +7846,6 @@
 	)
 	(wire
 		(pts
-			(xy 292.1 22.86) (xy 292.1 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "317c2ded-b2e4-47e4-bd25-dfab290b123e")
-	)
-	(wire
-		(pts
 			(xy 114.3 88.9) (xy 119.38 88.9)
 		)
 		(stroke
@@ -8145,13 +7856,13 @@
 	)
 	(wire
 		(pts
-			(xy 292.1 17.78) (xy 292.1 22.86)
+			(xy 228.6 41.91) (xy 252.73 41.91)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3330ac11-8740-4e2b-adba-e172f9270b39")
+		(uuid "35b7fe30-ff48-4558-9204-cbf0b2433723")
 	)
 	(wire
 		(pts
@@ -8205,6 +7916,26 @@
 	)
 	(wire
 		(pts
+			(xy 228.6 26.67) (xy 245.11 26.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3cf29f10-fb5b-4b30-a155-4b25d1540c1b")
+	)
+	(wire
+		(pts
+			(xy 241.3 34.29) (xy 228.6 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3d0bdc29-6450-4ff5-b4ee-dad9a8bfca19")
+	)
+	(wire
+		(pts
 			(xy 78.74 81.28) (xy 78.74 83.82)
 		)
 		(stroke
@@ -8212,6 +7943,16 @@
 			(type default)
 		)
 		(uuid "3e4908bc-a3f9-4d4d-a1f3-4507e41d402b")
+	)
+	(wire
+		(pts
+			(xy 252.73 22.86) (xy 252.73 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3ed6bcfd-b3ef-4101-97e4-19474f6a1e9e")
 	)
 	(wire
 		(pts
@@ -8302,6 +8043,16 @@
 			(type default)
 		)
 		(uuid "4a8ee84f-6679-4976-8e61-a44b3238ac1c")
+	)
+	(wire
+		(pts
+			(xy 228.6 44.45) (xy 260.35 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4bfa1ee6-0993-40a4-9ef4-6b0ceece9efd")
 	)
 	(wire
 		(pts
@@ -8435,7 +8186,7 @@
 	)
 	(wire
 		(pts
-			(xy 261.62 68.58) (xy 261.62 66.04)
+			(xy 271.78 30.48) (xy 271.78 27.94)
 		)
 		(stroke
 			(width 0)
@@ -8452,6 +8203,16 @@
 			(type default)
 		)
 		(uuid "5be5254a-627c-4d39-858f-a02ab428fcdf")
+	)
+	(wire
+		(pts
+			(xy 245.11 29.21) (xy 228.6 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5bf2ce09-9c6d-41a5-a947-376051d6a34c")
 	)
 	(wire
 		(pts
@@ -8472,16 +8233,6 @@
 			(type default)
 		)
 		(uuid "5ed365e7-5daf-4013-8ba0-e9fde1171795")
-	)
-	(wire
-		(pts
-			(xy 292.1 17.78) (xy 266.7 17.78)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5f546838-29f7-4c9b-91ed-e41ab6c6158f")
 	)
 	(wire
 		(pts
@@ -8532,16 +8283,6 @@
 			(type default)
 		)
 		(uuid "6502d132-57a1-44f7-a103-14d694779854")
-	)
-	(wire
-		(pts
-			(xy 266.7 22.86) (xy 279.4 22.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "651a0a40-b45e-49f2-9db9-f81e7c8ae113")
 	)
 	(wire
 		(pts
@@ -8685,26 +8426,6 @@
 	)
 	(wire
 		(pts
-			(xy 279.4 25.4) (xy 266.7 25.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "746dd1f3-91bb-43f7-bfab-1acfb5a941a1")
-	)
-	(wire
-		(pts
-			(xy 210.82 25.4) (xy 210.82 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "75f7259c-2e9c-4a41-8e41-b595daf03618")
-	)
-	(wire
-		(pts
 			(xy 162.56 177.8) (xy 147.32 177.8)
 		)
 		(stroke
@@ -8722,6 +8443,16 @@
 			(type default)
 		)
 		(uuid "770d6893-59e0-4466-b91c-4749384e8ad6")
+	)
+	(wire
+		(pts
+			(xy 241.3 31.75) (xy 228.6 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7751ed36-baf4-441d-86df-580d27296a1f")
 	)
 	(wire
 		(pts
@@ -8835,16 +8566,6 @@
 	)
 	(wire
 		(pts
-			(xy 292.1 38.1) (xy 292.1 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7e602e7d-7c4c-4628-92c6-666f849d605d")
-	)
-	(wire
-		(pts
 			(xy 53.34 40.64) (xy 53.34 38.1)
 		)
 		(stroke
@@ -8882,16 +8603,6 @@
 			(type default)
 		)
 		(uuid "81c8841d-c7c3-495c-8533-68f022d7dcfd")
-	)
-	(wire
-		(pts
-			(xy 284.48 30.48) (xy 284.48 22.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "82954cf5-ef6d-40ae-b162-4a70098d0c0a")
 	)
 	(wire
 		(pts
@@ -8995,26 +8706,6 @@
 	)
 	(wire
 		(pts
-			(xy 201.93 21.59) (xy 201.93 33.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8feac4b7-3261-4742-ab23-19aa4af90914")
-	)
-	(wire
-		(pts
-			(xy 274.32 38.1) (xy 274.32 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9266d8ec-2529-4710-bb44-8e49bbb76759")
-	)
-	(wire
-		(pts
 			(xy 147.32 147.32) (xy 162.56 147.32)
 		)
 		(stroke
@@ -9032,16 +8723,6 @@
 			(type default)
 		)
 		(uuid "93c51d8d-a52c-4b08-9c94-17e394931914")
-	)
-	(wire
-		(pts
-			(xy 210.82 30.48) (xy 226.06 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "96eb93e1-c33a-49ac-8008-4cf258a28fc4")
 	)
 	(wire
 		(pts
@@ -9225,7 +8906,17 @@
 	)
 	(wire
 		(pts
-			(xy 279.4 82.55) (xy 261.62 82.55)
+			(xy 260.35 22.86) (xy 260.35 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ad9786ce-55d1-465f-bf9e-b30c5fb5e578")
+	)
+	(wire
+		(pts
+			(xy 289.56 44.45) (xy 271.78 44.45)
 		)
 		(stroke
 			(width 0)
@@ -9295,16 +8986,6 @@
 	)
 	(wire
 		(pts
-			(xy 210.82 25.4) (xy 226.06 25.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b6610181-125d-40e4-971f-dfac2f21a998")
-	)
-	(wire
-		(pts
 			(xy 99.06 38.1) (xy 99.06 40.64)
 		)
 		(stroke
@@ -9312,16 +8993,6 @@
 			(type default)
 		)
 		(uuid "b67ddcd8-1ee6-4c1b-8c3d-7a2118e93de6")
-	)
-	(wire
-		(pts
-			(xy 201.93 10.16) (xy 201.93 11.43)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b6b4e8d5-5729-49d1-be57-083a291495f4")
 	)
 	(wire
 		(pts
@@ -9342,16 +9013,6 @@
 			(type default)
 		)
 		(uuid "b7586965-391e-4591-9400-d94be3d369a5")
-	)
-	(wire
-		(pts
-			(xy 218.44 11.43) (xy 218.44 10.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bc056d1e-2a39-4ad1-8e81-2bc6f38fa453")
 	)
 	(wire
 		(pts
@@ -9415,16 +9076,6 @@
 	)
 	(wire
 		(pts
-			(xy 292.1 15.24) (xy 266.7 15.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c5d66353-fe07-424b-8ce9-a53b4423956d")
-	)
-	(wire
-		(pts
 			(xy 30.48 60.96) (xy 30.48 66.04)
 		)
 		(stroke
@@ -9445,7 +9096,7 @@
 	)
 	(wire
 		(pts
-			(xy 261.62 63.5) (xy 261.62 66.04)
+			(xy 271.78 25.4) (xy 271.78 27.94)
 		)
 		(stroke
 			(width 0)
@@ -9462,16 +9113,6 @@
 			(type default)
 		)
 		(uuid "ca987da0-d855-471b-9fdb-6851ca06dafc")
-	)
-	(wire
-		(pts
-			(xy 292.1 15.24) (xy 292.1 17.78)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cad33bd5-4c09-40ad-8355-cb319d59289f")
 	)
 	(wire
 		(pts
@@ -9555,7 +9196,7 @@
 	)
 	(wire
 		(pts
-			(xy 261.62 50.8) (xy 261.62 53.34)
+			(xy 271.78 12.7) (xy 271.78 15.24)
 		)
 		(stroke
 			(width 0)
@@ -9615,7 +9256,7 @@
 	)
 	(wire
 		(pts
-			(xy 261.62 82.55) (xy 261.62 78.74)
+			(xy 271.78 44.45) (xy 271.78 40.64)
 		)
 		(stroke
 			(width 0)
@@ -9652,16 +9293,6 @@
 			(type default)
 		)
 		(uuid "dc156f80-6573-426a-b5d3-4cea453df778")
-	)
-	(wire
-		(pts
-			(xy 292.1 12.7) (xy 292.1 15.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e19610cc-6e4d-47bd-b6f0-2cbb7807dbff")
 	)
 	(wire
 		(pts
@@ -9815,16 +9446,6 @@
 	)
 	(wire
 		(pts
-			(xy 201.93 33.02) (xy 226.06 33.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f6791021-47f8-4da4-aa7f-f45e384421fb")
-	)
-	(wire
-		(pts
 			(xy 114.3 81.28) (xy 119.38 81.28)
 		)
 		(stroke
@@ -9835,23 +9456,13 @@
 	)
 	(wire
 		(pts
-			(xy 266.7 30.48) (xy 274.32 30.48)
+			(xy 241.3 36.83) (xy 228.6 36.83)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f7c43d39-1c83-46ba-9681-88092bb01f56")
-	)
-	(wire
-		(pts
-			(xy 210.82 10.16) (xy 210.82 25.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f9095b9e-713c-419d-a13d-6a5d24b22c70")
+		(uuid "f753a37f-e697-4ac0-bc4f-0172cf6f5f20")
 	)
 	(wire
 		(pts
@@ -9862,16 +9473,6 @@
 			(type default)
 		)
 		(uuid "fa137f85-2e28-41e1-aaf7-4dfe0fb2fa83")
-	)
-	(wire
-		(pts
-			(xy 284.48 22.86) (xy 292.1 22.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fab4645e-45eb-4331-861b-ff2d0c79f167")
 	)
 	(wire
 		(pts
@@ -10012,16 +9613,6 @@
 			(justify left bottom)
 		)
 		(uuid "1dadffe3-9120-4d24-9652-4231bb2a51e1")
-	)
-	(label "SDA"
-		(at 222.25 33.02 0)
-		(effects
-			(font
-				(size 1.2446 1.2446)
-			)
-			(justify left bottom)
-		)
-		(uuid "20b4b7a8-2c14-44fd-99c7-3bb811526c2b")
 	)
 	(label "USB_N"
 		(at 142.24 35.56 180)
@@ -10213,6 +9804,16 @@
 		)
 		(uuid "3ad4f25b-c887-4153-86bf-e65212e894b9")
 	)
+	(label "SDA"
+		(at 241.3 41.91 180)
+		(effects
+			(font
+				(size 1.2446 1.2446)
+			)
+			(justify right bottom)
+		)
+		(uuid "3da5f030-26a8-48e0-bacc-9967b5fd7e40")
+	)
 	(label "BUZZER"
 		(at 162.56 180.34 180)
 		(effects
@@ -10243,6 +9844,16 @@
 		)
 		(uuid "46051f3e-2c26-418d-86eb-9699136a7e61")
 	)
+	(label "A1_SCK"
+		(at 241.3 39.37 180)
+		(effects
+			(font
+				(size 1.2446 1.2446)
+			)
+			(justify right bottom)
+		)
+		(uuid "48143a46-24a1-4756-89e1-672bd0f77645")
+	)
 	(label "COM2"
 		(at 233.68 135.89 0)
 		(effects
@@ -10252,6 +9863,16 @@
 			(justify left bottom)
 		)
 		(uuid "4afe7a56-4008-4d07-8c9b-d0c7e4e544c7")
+	)
+	(label "A2_MOSI"
+		(at 241.3 36.83 180)
+		(effects
+			(font
+				(size 1.2446 1.2446)
+			)
+			(justify right bottom)
+		)
+		(uuid "4bbd06cc-3122-4bc9-bf3b-90a720ca4102")
 	)
 	(label "SEG11"
 		(at 30.48 137.16 0)
@@ -10364,7 +9985,7 @@
 		(uuid "68c9173d-43ad-4c1a-b7e0-44d754f4d78a")
 	)
 	(label "~{TS_ENABLE}"
-		(at 279.4 82.55 180)
+		(at 289.56 44.45 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10494,7 +10115,7 @@
 		(uuid "858b139e-768f-4aaa-bf51-a2a31bd158ac")
 	)
 	(label "A3/D0/CS"
-		(at 279.4 25.4 180)
+		(at 241.3 34.29 180)
 		(effects
 			(font
 				(size 1.2446 1.2446)
@@ -10524,7 +10145,7 @@
 		(uuid "85ddad20-f0b7-4163-9e71-aa5c3bdad7e1")
 	)
 	(label "SCL"
-		(at 226.06 22.86 180)
+		(at 241.3 44.45 180)
 		(effects
 			(font
 				(size 1.2446 1.2446)
@@ -10734,7 +10355,7 @@
 		(uuid "bbce39f1-5c94-4a82-b1c8-b84cca72a0b7")
 	)
 	(label "TEMPSENSE"
-		(at 279.4 66.04 180)
+		(at 289.56 27.94 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10944,7 +10565,7 @@
 		(uuid "fdb7e3fb-b8cd-49a1-9ee1-6fecf07285a9")
 	)
 	(label "A4/D1/MISO"
-		(at 279.4 22.86 180)
+		(at 241.3 31.75 180)
 		(effects
 			(font
 				(size 1.2446 1.2446)
@@ -11024,71 +10645,6 @@
 			(project "OSO-SWAT-C1"
 				(path "/3048f5e8-34bb-46da-8fa5-8c5aad2586f2"
 					(reference "#SUPPLY02")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OSO-MISC-21-021 Sensor Watch Motion II-eagle-import:GND")
-		(at 292.1 43.18 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "08832b7f-d991-4c9c-8160-957a0d857246")
-		(property "Reference" "#U$014"
-			(at 292.1 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 290.576 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.0795)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "OSO-MISC-21-021 Sensor Watch Motion II:"
-			(at 292.1 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 292.1 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 292.1 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "4709ba8c-472b-44ac-bfea-6c6701579d64")
-		)
-		(instances
-			(project "OSO-JOLT-A1"
-				(path "/3048f5e8-34bb-46da-8fa5-8c5aad2586f2"
-					(reference "#U$014")
 					(unit 1)
 				)
 			)
@@ -11222,72 +10778,6 @@
 			(project "OSO-SWAT-C1"
 				(path "/3048f5e8-34bb-46da-8fa5-8c5aad2586f2"
 					(reference "#SUPPLY01")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OSO-SWAT-A1-05-eagle-import:VCC")
-		(at 292.1 12.7 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0ff58570-3a73-4a04-8ec1-84a17cd6e9e9")
-		(property "Reference" "#SUPPLY012"
-			(at 292.1 12.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VCC"
-			(at 292.1 9.906 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify bottom)
-			)
-		)
-		(property "Footprint" "OSO-SWAT-A1-05:"
-			(at 292.1 12.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 292.1 12.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 292.1 12.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e0d9f178-3df2-4daf-b6c7-a7bce407cd10")
-		)
-		(instances
-			(project "OSO-JOLT-A1"
-				(path "/3048f5e8-34bb-46da-8fa5-8c5aad2586f2"
-					(reference "#SUPPLY012")
 					(unit 1)
 				)
 			)
@@ -11498,7 +10988,7 @@
 	)
 	(symbol
 		(lib_id "OSO-SWAT-A1-05-eagle-import:RESISTOR_0603MP")
-		(at 218.44 16.51 270)
+		(at 260.35 17.78 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11506,7 +10996,7 @@
 		(dnp no)
 		(uuid "1c96056b-0521-444b-a34b-0f032e75563f")
 		(property "Reference" "R4"
-			(at 219.9386 12.7 0)
+			(at 261.8486 13.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11515,7 +11005,7 @@
 			)
 		)
 		(property "Value" "10K"
-			(at 215.138 15.24 0)
+			(at 257.048 16.51 0)
 			(effects
 				(font
 					(size 1.016 1.016)
@@ -11525,7 +11015,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
-			(at 218.44 16.51 0)
+			(at 260.35 17.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11534,7 +11024,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 218.44 16.51 0)
+			(at 260.35 17.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11543,7 +11033,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 218.44 16.51 0)
+			(at 260.35 17.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11887,71 +11377,6 @@
 				(path "/3048f5e8-34bb-46da-8fa5-8c5aad2586f2"
 					(reference "U1")
 					(unit 2)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OSO-MISC-21-021 Sensor Watch Motion II-eagle-import:GND")
-		(at 284.48 43.18 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2f9b5b96-185c-427c-9a13-652999d64f3c")
-		(property "Reference" "#U$011"
-			(at 284.48 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 282.956 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.0795)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "OSO-MISC-21-021 Sensor Watch Motion II:"
-			(at 284.48 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 284.48 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 284.48 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "2397955a-5fc5-4f3a-adc0-ee57c2d0cdbc")
-		)
-		(instances
-			(project "OSO-JOLT-A1"
-				(path "/3048f5e8-34bb-46da-8fa5-8c5aad2586f2"
-					(reference "#U$011")
-					(unit 1)
 				)
 			)
 		)
@@ -12485,7 +11910,7 @@
 	)
 	(symbol
 		(lib_id "OSO-SWAT-A1-05-eagle-import:RESISTOR_0603MP")
-		(at 261.62 58.42 270)
+		(at 271.78 20.32 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12493,7 +11918,7 @@
 		(dnp no)
 		(uuid "42ec38ff-4377-463c-93d9-70d9ddb03713")
 		(property "Reference" "R5"
-			(at 263.1186 54.61 0)
+			(at 273.2786 16.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12502,7 +11927,7 @@
 			)
 		)
 		(property "Value" "10K THERM"
-			(at 258.318 57.15 0)
+			(at 268.478 19.05 0)
 			(effects
 				(font
 					(size 1.016 1.016)
@@ -12512,7 +11937,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 261.62 58.42 0)
+			(at 271.78 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12521,7 +11946,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 261.62 58.42 0)
+			(at 271.78 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12530,7 +11955,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 261.62 58.42 0)
+			(at 271.78 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12555,7 +11980,7 @@
 	)
 	(symbol
 		(lib_id "OSO-SWAT-A1-05-eagle-import:VCC")
-		(at 261.62 50.8 0)
+		(at 271.78 12.7 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12563,7 +11988,7 @@
 		(dnp no)
 		(uuid "439ede3c-77a2-4e59-a70f-3fbd0f2876da")
 		(property "Reference" "#SUPPLY010"
-			(at 261.62 50.8 0)
+			(at 271.78 12.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12572,7 +11997,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 261.62 48.006 0)
+			(at 271.78 9.906 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -12581,7 +12006,7 @@
 			)
 		)
 		(property "Footprint" "OSO-SWAT-A1-05:"
-			(at 261.62 50.8 0)
+			(at 271.78 12.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12590,7 +12015,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 261.62 50.8 0)
+			(at 271.78 12.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12599,7 +12024,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 261.62 50.8 0)
+			(at 271.78 12.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13458,6 +12883,101 @@
 		)
 	)
 	(symbol
+		(lib_id "OSO-SWAT-A1-05-eagle-import:FH19C-9S-0.5SH_10_")
+		(at 205.74 26.67 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5df8d9d1-9661-4c83-9bc2-b80f4ae60c0b")
+		(property "Reference" "J2"
+			(at 217.17 17.78 0)
+			(effects
+				(font
+					(size 1.778 1.5113)
+				)
+			)
+		)
+		(property "Value" "FH19C-9S-0.5SH_10_"
+			(at 217.17 21.59 0)
+			(effects
+				(font
+					(size 1.778 1.5113)
+				)
+			)
+		)
+		(property "Footprint" "OSO-SWAT-A1-05:FH19C9S05SH10"
+			(at 205.74 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 205.74 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 205.74 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "45d5bfae-2eca-43b9-8a43-d6b873a37594")
+		)
+		(pin "2"
+			(uuid "131fee6c-3374-4bf1-b38e-f64357ea1008")
+		)
+		(pin "3"
+			(uuid "a7ee3bbe-16b6-454f-8dad-87e1a300c902")
+		)
+		(pin "4"
+			(uuid "70869e37-58d7-4563-9fce-d9c2a952d25d")
+		)
+		(pin "5"
+			(uuid "b0f6751c-dee6-4e97-b504-f631bc31d99c")
+		)
+		(pin "6"
+			(uuid "e82c2bd8-4584-4ded-8b5e-6922d5d63b97")
+		)
+		(pin "7"
+			(uuid "b06c47c6-25f4-4200-bf44-027ec9664dfb")
+		)
+		(pin "8"
+			(uuid "b95cb8dd-dffe-4ed5-b161-a3364fa021bc")
+		)
+		(pin "9"
+			(uuid "63a882d7-a34c-4475-8133-07f1e7269042")
+		)
+		(pin "MP1"
+			(uuid "82a73928-ba92-4702-827d-c3dea76b04fa")
+		)
+		(pin "MP2"
+			(uuid "abccc667-1be2-44dc-a725-aa5d9188750a")
+		)
+		(instances
+			(project "OSO-SWAT-C1"
+				(path "/3048f5e8-34bb-46da-8fa5-8c5aad2586f2"
+					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OSO-SWAT-A1-05-eagle-import:GND")
 		(at 171.45 85.09 0)
 		(unit 1)
@@ -13726,71 +13246,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OSO-MISC-21-021 Sensor Watch Motion II-eagle-import:GND")
-		(at 274.32 43.18 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "7261a463-5ca0-42cf-8417-278c01fa9d0a")
-		(property "Reference" "#U$010"
-			(at 274.32 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 272.796 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.0795)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "OSO-MISC-21-021 Sensor Watch Motion II:"
-			(at 274.32 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 274.32 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 274.32 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "13942ff4-82c0-4efa-a33f-1cbb822ea49a")
-		)
-		(instances
-			(project "OSO-JOLT-A1"
-				(path "/3048f5e8-34bb-46da-8fa5-8c5aad2586f2"
-					(reference "#U$010")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "OSO-SWAT-A1-05-eagle-import:GND")
 		(at 176.53 25.4 0)
 		(mirror y)
@@ -13859,7 +13314,7 @@
 	)
 	(symbol
 		(lib_id "OSO-SWAT-A1-05-eagle-import:VCC")
-		(at 218.44 10.16 0)
+		(at 260.35 12.7 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13867,7 +13322,7 @@
 		(dnp no)
 		(uuid "78cc1e01-92fb-4458-81b1-a208b1898969")
 		(property "Reference" "#SUPPLY09"
-			(at 218.44 10.16 0)
+			(at 260.35 12.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13876,7 +13331,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 218.44 7.366 0)
+			(at 260.35 9.906 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -13885,7 +13340,7 @@
 			)
 		)
 		(property "Footprint" "OSO-SWAT-A1-05:"
-			(at 218.44 10.16 0)
+			(at 260.35 12.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13894,7 +13349,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 218.44 10.16 0)
+			(at 260.35 12.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13903,7 +13358,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 218.44 10.16 0)
+			(at 260.35 12.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14059,7 +13514,7 @@
 	)
 	(symbol
 		(lib_id "OSO-SWAT-A1-05-eagle-import:RESISTOR_0603MP")
-		(at 201.93 16.51 270)
+		(at 252.73 17.78 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14067,7 +13522,7 @@
 		(dnp no)
 		(uuid "800a1732-4f70-4244-bc05-73926cb5e2ce")
 		(property "Reference" "R3"
-			(at 203.4286 12.7 0)
+			(at 254.2286 13.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14076,7 +13531,7 @@
 			)
 		)
 		(property "Value" "10K"
-			(at 198.628 15.24 0)
+			(at 249.428 16.51 0)
 			(effects
 				(font
 					(size 1.016 1.016)
@@ -14086,7 +13541,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
-			(at 201.93 16.51 0)
+			(at 252.73 17.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14095,7 +13550,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 201.93 16.51 0)
+			(at 252.73 17.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14104,7 +13559,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 201.93 16.51 0)
+			(at 252.73 17.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14196,7 +13651,7 @@
 	)
 	(symbol
 		(lib_id "OSO-SWAT-A1-05-eagle-import:VCC")
-		(at 201.93 10.16 0)
+		(at 252.73 12.7 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14204,7 +13659,7 @@
 		(dnp no)
 		(uuid "845ed886-60a3-42fb-84a6-18b363cc1d3d")
 		(property "Reference" "#SUPPLY08"
-			(at 201.93 10.16 0)
+			(at 252.73 12.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14213,7 +13668,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 201.93 7.366 0)
+			(at 252.73 9.906 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -14222,7 +13677,7 @@
 			)
 		)
 		(property "Footprint" "OSO-SWAT-A1-05:"
-			(at 201.93 10.16 0)
+			(at 252.73 12.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14231,7 +13686,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 201.93 10.16 0)
+			(at 252.73 12.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14240,7 +13695,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 201.93 10.16 0)
+			(at 252.73 12.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14262,7 +13717,7 @@
 	)
 	(symbol
 		(lib_id "OSO-SWAT-A1-05-eagle-import:RESISTOR_0603MP")
-		(at 261.62 73.66 270)
+		(at 271.78 35.56 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14270,7 +13725,7 @@
 		(dnp no)
 		(uuid "852c0639-8df4-408f-a45f-5b558bb54638")
 		(property "Reference" "R6"
-			(at 263.1186 69.85 0)
+			(at 273.2786 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14279,7 +13734,7 @@
 			)
 		)
 		(property "Value" "10K 0.1%"
-			(at 258.318 72.39 0)
+			(at 268.478 34.29 0)
 			(effects
 				(font
 					(size 1.016 1.016)
@@ -14289,7 +13744,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 261.62 73.66 0)
+			(at 271.78 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14298,7 +13753,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 261.62 73.66 0)
+			(at 271.78 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14307,7 +13762,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 261.62 73.66 0)
+			(at 271.78 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14691,72 +14146,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OSO-MISC-21-021 Sensor Watch Motion II-eagle-import:CAP_CERAMIC_0603MP")
-		(at 292.1 35.56 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "973f7d72-8592-454f-9b74-eca802771386")
-		(property "Reference" "C11"
-			(at 289.81 34.31 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0.1uF"
-			(at 294.4 34.31 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OSO-MISC-21-021 Sensor Watch Motion II:_0603MP"
-			(at 292.1 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 292.1 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 292.1 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "891d31ae-986f-4d13-b91e-7f6d2485b410")
-		)
-		(pin "2"
-			(uuid "1fd0082f-3166-4f03-b066-9e3f98e5cfc0")
-		)
-		(instances
-			(project "OSO-JOLT-A1"
-				(path "/3048f5e8-34bb-46da-8fa5-8c5aad2586f2"
-					(reference "C11")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "OSO-SWAT-A1-05-eagle-import:CAP_CERAMIC_0603MP")
 		(at 180.34 21.59 270)
 		(unit 1)
@@ -15024,6 +14413,72 @@
 			(project ""
 				(path "/3048f5e8-34bb-46da-8fa5-8c5aad2586f2"
 					(reference "Q1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OSO-SWAT-A1-05-eagle-import:VCC")
+		(at 245.11 21.59 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a4dcf03b-1aca-4a94-b0f0-d94f759e7933")
+		(property "Reference" "#SUPPLY07"
+			(at 245.11 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCC"
+			(at 245.11 18.796 0)
+			(effects
+				(font
+					(size 1.778 1.5113)
+				)
+				(justify bottom)
+			)
+		)
+		(property "Footprint" "OSO-SWAT-A1-05:"
+			(at 245.11 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 245.11 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 245.11 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a168573c-f924-4f48-9789-d8143c64542e")
+		)
+		(instances
+			(project "OSO-SWAT-C1"
+				(path "/3048f5e8-34bb-46da-8fa5-8c5aad2586f2"
+					(reference "#SUPPLY07")
 					(unit 1)
 				)
 			)
@@ -15820,72 +15275,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OSO-MISC-21-021 Sensor Watch Motion II-eagle-import:CAP_CERAMIC_0603MP")
-		(at 284.48 33.02 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "cfb2b2bc-2ca1-42bf-af40-02ffdb5c1676")
-		(property "Reference" "C10"
-			(at 286.77 34.27 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10uF"
-			(at 282.18 34.27 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OSO-MISC-21-021 Sensor Watch Motion II:_0603MP"
-			(at 284.48 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 284.48 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 284.48 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "0804c9d5-868f-4c77-8bc1-4cc2955492fe")
-		)
-		(pin "2"
-			(uuid "09021ac9-28dd-47f1-9611-2a14e66c7611")
-		)
-		(instances
-			(project "OSO-JOLT-A1"
-				(path "/3048f5e8-34bb-46da-8fa5-8c5aad2586f2"
-					(reference "C10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "OSO-SWAT-A1-05-eagle-import:QBLP617-IW")
 		(at 217.17 72.39 0)
 		(unit 1)
@@ -16088,16 +15477,17 @@
 		)
 	)
 	(symbol
-		(lib_id "OSO-SWAT-A1-05-eagle-import:VCC")
-		(at 210.82 10.16 0)
+		(lib_id "OSO-SWAT-A1-05-eagle-import:GND")
+		(at 245.11 34.29 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "de67c76f-6eda-4c1d-9328-83cb5fc7fdfa")
-		(property "Reference" "#SUPPLY011"
-			(at 210.82 10.16 0)
+		(uuid "def006f6-426b-4a80-9cca-8ca4dcfb470c")
+		(property "Reference" "#U$09"
+			(at 245.11 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16105,17 +15495,17 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
-			(at 210.82 7.366 0)
+		(property "Value" "GND"
+			(at 246.126 34.29 0)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.0795)
 				)
-				(justify bottom)
+				(justify right top)
 			)
 		)
 		(property "Footprint" "OSO-SWAT-A1-05:"
-			(at 210.82 10.16 0)
+			(at 245.11 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16124,7 +15514,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 210.82 10.16 0)
+			(at 245.11 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16133,7 +15523,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 210.82 10.16 0)
+			(at 245.11 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16142,107 +15532,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "9996c7d2-35e1-4e59-b33a-ec59e0bbe36a")
+			(uuid "04e860dc-209a-4c9f-b626-be2dfa3c508d")
 		)
 		(instances
-			(project "OSO-JOLT-A1"
+			(project "OSO-SWAT-C1"
 				(path "/3048f5e8-34bb-46da-8fa5-8c5aad2586f2"
-					(reference "#SUPPLY011")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OSO-MISC-21-021 Sensor Watch Motion II-eagle-import:LIS2DW12TR")
-		(at 246.38 25.4 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e9765e2d-ad46-4108-a92d-7ca5b0737243")
-		(property "Reference" "U6"
-			(at 231.1361 12.6968 0)
-			(effects
-				(font
-					(size 1.7784 1.5116)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "LIS2DW12TR"
-			(at 231.1306 43.1909 0)
-			(effects
-				(font
-					(size 1.779 1.5121)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "OSO-MISC-21-021 Sensor Watch Motion II:LGA12R50P4X4_200X200X70"
-			(at 246.38 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 246.38 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 246.38 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e14c4c9e-d134-4122-a9f5-39078b004053")
-		)
-		(pin "10"
-			(uuid "6d753448-9c3b-4136-8516-6065dad2b1af")
-		)
-		(pin "11"
-			(uuid "0a5864e0-f5b4-466d-8792-50e9e6ce7305")
-		)
-		(pin "12"
-			(uuid "6aeb4bab-6d68-4f23-8804-459e95d37197")
-		)
-		(pin "2"
-			(uuid "cb585bfa-9ade-4802-a7ae-3b66cf7f229a")
-		)
-		(pin "3"
-			(uuid "76d42f19-6e90-4085-8e44-3400c13f7d42")
-		)
-		(pin "4"
-			(uuid "8849c931-6794-48a0-9044-85b445147e61")
-		)
-		(pin "6"
-			(uuid "507aaaa6-fdd0-4c25-804d-1a47c3a28909")
-		)
-		(pin "7"
-			(uuid "341b4ce7-7275-4023-a4e4-ba2ff370b5d8")
-		)
-		(pin "8"
-			(uuid "7a15902f-0099-4ea5-b38c-2c5b0bbad165")
-		)
-		(pin "9"
-			(uuid "8729b450-c756-4959-a791-4d4293768525")
-		)
-		(instances
-			(project "OSO-JOLT-A1"
-				(path "/3048f5e8-34bb-46da-8fa5-8c5aad2586f2"
-					(reference "U6")
+					(reference "#U$09")
 					(unit 1)
 				)
 			)
