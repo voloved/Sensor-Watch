@@ -566,7 +566,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "./OSO-SWAT-C1-06",
+      "plot": "/home/ubuntu/Git/sensorwatch/Sensorwatch/PCB/Main Boards/OSO-JOLT-A1/OSO-SWAT-C1-06/Gerber/",
       "pos_files": "./temp/",
       "specctra_dsn": "",
       "step": "OSO-SWAT-C1.step",
